@@ -13,25 +13,23 @@
     <p>Help me Mr. Obama.</p>
 </div>
 
+
 <!--Personal information -->
+<form action="generateResume.php" method="post">
 <div class="container">
     <h2>Personal Information</h2>
     <div class="row">
         <div class="col">
-            <form>
                 <div class="form-group">
                     <label for="firstNameInput">First Name</label>
-                    <input type="firstName" class="form-control" id="firstNameInput" placeholder="Chad, Stacey, Elon, Obama">
+                    <input type="firstName" class="form-control" id="firstNameInput" placeholder="Chad, Stacey, Elon, Obama" name="firstName">
                 </div>
-            </form>
         </div>
         <div class="col">
-            <form>
                 <div class="form-group">
                     <label for="lastNameInput">Last Name</label>
-                    <input type="lastName" class="form-control" id="lastNameInput" placeholder="Smith, Musk, Gates, Jobs, etc.">
+                    <input type="lastName" class="form-control" id="lastNameInput" placeholder="Smith, Musk, Gates, Jobs, etc." name="lastName">
                 </div>
-            </form>
         </div>
         <div class="col">
             <form>
@@ -42,16 +40,15 @@
             </form>
         </div>
     </div>
-    <form>
     <div class="contact-information">
         <div class="row">
             <div class="col">
                 <label for="emailInput">Email Address</label>
-                <input type="email" class="form-control" id="emailInput" placeholder="Enter email">
+                <input type="email" class="form-control" id="emailInput" placeholder="Enter email" name="email">
             </div>
             <div class="col">
                 <label for="phoneInput">Phone Number</label>
-                <input type="phone" class="form-control" id="phoneInput" placeholder="1-800-733-6697">
+                <input type="phone" class="form-control" id="phoneInput" placeholder="1-800-733-6697" name="phoneNumber">
             </div>
         </div>
     </div>
@@ -97,8 +94,9 @@
     </form>
 </div>
 <div class="container">
-    <button type="button" class="btn btn-dark">Gimme job</button>
+    <input class="btn btn-primary" type="submit" value="Gimme Job">
 </div>
+</form>
 
 </body>
 </html>
