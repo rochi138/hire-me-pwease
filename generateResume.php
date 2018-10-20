@@ -27,6 +27,8 @@
     	display: flex;
     	flex-direction: column;
     	padding: 20px;
+    	background: url(killme.png);
+    	background-size: contain;
     }
 
     div.Page {
@@ -64,16 +66,31 @@
 		    	<div>
 		    		<?php
 		    			$hobbies = $_POST['hobbies'];
+		    			$hobbyDescription = [
+    						"Anime" => "Lemme tell you all about my waifus. And husbandos, this is a safe space. I think anime is the absolute peak of human accomplishments. If aliens ever came to visit earth, we can explain our entire history of our species through a binge session of all episodes of OnePiece. Anine is life",
 
+    						"Coin collecting" => "Everybody loves money. Money makes the world go round. Money can also be round. Earth is really old. Finding really old coins is nice. They may not be shiny, but not all shiny things are great like the grease in my classmate’s hair.",
+
+    						"Tibetan ThROAST Singing" => "I love Tibet. I love singing. I love throats (in fact I collect them as another hobby). Mixing them all together gets you Tibetan throat singing. It is such a beautiful art, no matter how terrible I am at it. Even if my neighbors try to bomb my bedroom and my parents have disowned me from the noise, I continue to follow my passion.",
+
+    						"Fanfiction" => "E. L. James managed to make it big with her Twilight fanfiction, Fifty Shades of Grey. I aspire to be her one day and get my WattPad account famout.",
+
+    						"Reddit" => "I made it onto the front of Reddit once",
+
+    						":, )" => "I have no life"
+						];
 						if (isset($_POST['hobbies'])) {
     						echo "You chose the following hobbies: <br>";
 
     						foreach ($hobbies as $hobbyInfo){
     							offset();
         						echo "$hobbyInfo", "<br>";
-    							}
+        						offset();
+        						echo "$hobbyDescription[$hobbyInfo]";
+        						echo "<br>";
+    						}
 						} else {
-    						echo "You did not choose a hobby.";
+    						echo "wow u really are boring.";
 						}
 					?>
 		    	</div>
