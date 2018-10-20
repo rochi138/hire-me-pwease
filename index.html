@@ -32,12 +32,10 @@
                 </div>
         </div>
         <div class="col">
-            <form>
                 <div class="form-group">
                     <label for="ageInput">Age</label>
-                    <input type="age" class="form-control" id="ageInput" placeholder="420">
+                    <input type="age" class="form-control" id="ageInput" placeholder="420" name="age">
                 </div>
-            </form>
         </div>
     </div>
     <div class="contact-information">
@@ -52,46 +50,41 @@
             </div>
         </div>
     </div>
-    </form>
     <h3>Experience</h3>
     <p>I have experience with:</p>
-    <form>
         <div class="form-check form-check-inline">
             <input class="form-check-input" type="checkbox" id="checkboxExpGoogle" value="Google">
             <label class="form-check-label" for="checkboxExpGoogle">Google</label>
         </div>
-    </form>
 
 
 
     <h2>Hobbies</h2>
-    <form>
     <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="checkboxHobbyAnime" value="Anime">
+        <input class="form-check-input" type="checkbox" id="checkboxHobbyAnime" name="hobbies[]" value="Anime">
         <label class="form-check-label" for="checkboxHobbyAnime">Anime</label>
     </div>
     <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="checkboxHobbyCoin" value="Coin collecting">
+        <input class="form-check-input" type="checkbox" id="checkboxHobbyCoin" name="hobbies[]" value="Coin collecting">
         <label class="form-check-label" for="checkboxHobbyCoin">Coin collecting</label>
     </div>
     <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="checkboxHobbyTibetan" value="Tibetan">
+        <input class="form-check-input" type="checkbox" id="checkboxHobbyTibetan" name="hobbies[]" value="Tibetan">
         <label class="form-check-label" for="checkboxHobbyTibetan">Tibetan throat singing</label>
     </div>
     <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="checkboxHobbyFanfiction" value="Fanfiction">
+        <input class="form-check-input" type="checkbox" id="checkboxHobbyFanfiction" name="hobbies[]" value="Fanfiction">
         <label class="form-check-label" for="checkboxHobbyFanfiction">Fanfiction</label>
     </div>
 
     <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="checkboxHobbyReddit" value="Reddit">
+        <input class="form-check-input" type="checkbox" id="checkboxHobbyReddit" name="hobbies[]" value="Reddit">
         <label class="form-check-label" for="checkboxHobbyReddit">Reddit</label>
     </div>
     <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="checkboxHobbyLucky" value="Lucky">
+        <input class="form-check-input" type="checkbox" id="checkboxHobbyLucky" name="hobbies[]" value="Lucky">
         <label class="form-check-label" for="checkboxHobbyLucky">I'm feeling lucky ;)</label>
     </div>
-    </form>
 </div>
 <div class="container">
     <input class="btn btn-primary" type="submit" value="Gimme Job">
