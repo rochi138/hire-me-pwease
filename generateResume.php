@@ -2,14 +2,14 @@
 <html>
 <body>
 
-<h1>My first PHP page</h1>
 
-<?php
-echo "Hello World!";
+ 
+<?php 
+	echo "<h1>Welcom to Jackass</h1>";
+	echo $_POST["firstName"], " ", $_POST["lastName"], "<br>"; 
+	echo "<p>Your email address is: ", $_POST["email"], "</p>";
+	echo "<p>Your phoneNumber is: ", $_POST["phoneNumber"], "</p>"
 ?>
-
-Welcome <?php echo $_POST["firstName"]; ?><br>
-Your email address is: <?php echo $_POST["email"]; ?>
 
 </body>
 </html>
