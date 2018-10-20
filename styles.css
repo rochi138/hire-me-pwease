@@ -1,0 +1,17 @@
+.h1, .h2, .h3, h1, h2, h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+h1, h2 {
+    background: linear-gradient(to right, orange , yellow, green, cyan, blue, violet);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+body{
+    background-image: url("halp.PNG");
+    background-size: 100%;
+}
+label{
+    color: red;
+}
