@@ -1,162 +1,122 @@
 import React, { Component } from 'react';
-import { MainLayout } from '../components/MainLayout';
-import stylesHome from '../SCSS/HomePage.module.scss';
-import { Button, Row, Col } from 'reactstrap';
+import '../SCSS/styles.css';
 
 export default class Home extends Component{
   constructor( props ) {
     super();
-
-    var source=require('./HomePage.json');
-
-    if ( source.projects.length > 6 ) {
-      source.projectsMore= source.projects.slice( 6, source.projects.length );
-      source.projects= source.projects.slice( 0, 6 );
-    }
-
-    this.state={
-      source: source,
-      showProjects: false,
-      showSYDE: false,
-      showInterest: 0,
-    }
-
-    this.readMore = this.readMore.bind( this );
-  }
-
-  componentDidMount() {
-    window.scrollTo(0, 0);
-  }
-
-  readMore( id ) {
-    this.setState(prevState => ({ 
-      ["show"+id]: !prevState["show"+id]
-    }));
   }
 
   render(){
-    var source = this.state.source;
-    var openInterest = source.interests[ this.state.showInterest ];
-
-    //component ids can be set with variables
-    const example = "about";
-
-    //Animations are missing
-    //Can use modal (from previous versions) in project pages
     return(
-      <MainLayout isHome={ true } {...this.props } >
-        <div>
-          <div className={ `${ stylesHome.parallax } ${ stylesHome.bannerPic }` } id="home">
-            <div className={ stylesHome.displayMiddle } >
-              <div className={ stylesHome.name } >ROBYN CHING</div> 
-            </div>
-          </div>
-          <div className={ stylesHome.sectionContainer} id={example}>
-            <h3>ABOUT ME</h3>
-            <div className={ stylesHome.subTitle }>Candidate for Systems Design Engineering Class 2022</div>
-            <div className={ stylesHome.floatContainer }>
-              <img src={ require( '../images/robynProfile.JPG' ) } class="w3-round w3-image" alt="Profile" className={ stylesHome.profilePic } />
-              <div style={{ textAlign: "left", marginBottom: "1em" }} dangerouslySetInnerHTML={ { __html: source.aboutMe.text } }/>
-            </div>
-            <Button className={ stylesHome.resumeButton } style={{ backgroundColor: "#ccc", border: "none" }}>
-              <a class="w3-button w3-padding-large w3-light-grey" style={{marginTop: "64px", color: "black" }} href="https://github.com/rochi138/personal-website-repo/raw/master/src/documents/Robyn%20Ching%20-%20Resume%202018%20Co-op.pdf" target="_blank" rel="noopener noreferrer">Haven't seen my resume yet? Take a quick look!</a>
-            </Button>
-          </div>
-          <div className={ stylesHome.sectionContainer} id="whatissyde" style={{paddingTop: "0"}}>
-            <h3>WHAT IS SYSTEMS DESIGN ENGINEERING?</h3>
-            <div className={ stylesHome.subTitle }>Systems is how we know the world. Design is how we change it.</div>
-            { this.state.showSYDE &&
-              <div dangerouslySetInnerHTML={ { __html: source.SYDE.text } }/>
-            }
-            <Button onClick={ () => this.readMore("SYDE") } style={{ backgroundColor: "#ccc", border: "none", color: "black" }}>
-              { this.state.showSYDE ? "Show Less" : "Read More"}
-            </Button>
-          </div>
-          <div className={ `${ stylesHome.parallax } ${ stylesHome.projectsPic }` } >
-            <div className={ stylesHome.displayMiddle }>
-              <span className={ stylesHome.sectionName } >PROJECTS</span>
-            </div>
-          </div>
-          <div className={ stylesHome.sectionContainer} id="projects">
-            <h3>MY WORK</h3>
-            <div className={ stylesHome.subTitle }>Previous work and personal projects.<br /> Click for the project's page</div>
-            <Row>
-              { source.projects.map( ( project, i ) =>
-                <Col sm={ 6 } md={ 4 } key={ i } onClick={ () => this.props.history.push( '/' + project.link ) }>
-                  <div style={{height: "16em", width: "100%", textAlign: "center"}} >
-                    <span style={{height: "100%", display: "inline-block", verticalAlign: "middle"}}></span>
-                    <img src={ require('../images/' + project.image + '.jpg' ) } style={{width: "90%", height: "100%", verticalAlign: "middle", objectFit: "contain"}} alt={ project.alt } />
-                  </div>
-                  <div style={{height: "5em", display: "flex", flexDirection: "column", alignItems: "center"}} >
-                    <h4>{ project.name }</h4>
-                    <p>{ project.description }</p>
-                  </div>
-                </Col>
-              ) }
-              { ( this.state.showProjects && source.projectsMore ) && source.projectsMore.map( ( project, i ) =>
-                <Col sm={ 6 } md={ 4 } key={ i } onClick={ () => this.props.history.push( '/' + project.link ) }>
-                  <div style={{height: "16em", width: "100%", textAlign: "center"}} >
-                    <span style={{height: "100%", display: "inline-block", verticalAlign: "middle"}}></span>
-                    <img src={ require('../images/' + project.image + '.jpg' ) } style={{width: "90%", height: "100%", verticalAlign: "middle", objectFit: "contain"}} alt={ project.alt } />
-                  </div>
-                  <div style={{height: "5em", display: "flex", flexDirection: "column", alignItems: "center"}} >
-                    <h4>{ project.name }</h4>
-                    <p>{ project.description }</p>
-                  </div>
-                </Col>
-              ) }
-            </Row>
-            { source.projectsMore && 
-              <Button onClick={ () => this.readMore("Projects") } style={{ backgroundColor: "#ccc", border: "none", color: "black" }}>
-                { this.state.showProjects ? "Show Less" : "Load More"}
-              </Button>
-            }
-          </div>
-          <div className={ `${ stylesHome.parallax } ${ stylesHome.contactPic }` }>
-            <div className={ stylesHome.displayMiddle }>
-              <span className={ stylesHome.sectionName } >CONTACT</span>
-            </div>
-          </div>
-          <div className={ stylesHome.sectionContainer} id="contact">
-            <h3>Question? Comments? Concerns?</h3>
-            <div className={ stylesHome.subTitle }>Let me know and I'll get back to you!</div>
-
-            <div class="w3-row w3-padding-32 w3-section" id="div-container">
-              <div class="w3-large w3-margin-bottom w3-center" style={ { textAlign: "center" }}>
-                <i class="fa fa-envelope fa-fw w3-hover-text-black w3-xlarge w3-margin-right"></i> Email: rjching@uwaterloo.ca<br />
-              </div>
-            </div>
-          </div>
-          <div className={ `${ stylesHome.parallax } ${ stylesHome.interestsPic }` }>
-            <div className={ stylesHome.displayMiddle }>
-              <span className={ stylesHome.sectionName } >INTERESTS</span>
-            </div>
-          </div>
-          <div className={ stylesHome.sectionContainer} id="interests">
-            <h3>OUTSIDE OF OFFICE HOURS</h3>
-            <div className={ stylesHome.subTitle }>Conversation Starters <br />Things Nobody Asked For<br />Weak Flexes</div>
-            <div className={ stylesHome.interestsWrapper }>
-              <div className={ stylesHome.interestsBar }>
-                { source.interests.map( ( interest, i ) =>
-                  <div key={ i } className={ stylesHome.option } onClick={ () => this.setState({ showInterest: i }) }>
-                    <img src={ require('../images/' + interest.image + '.jpg' ) } style={{width: "20%", height: "100%", objectFit: "contain", minWidth: "4em", padding: "5px"}} alt={ interest.alt } />
-                  <div className={ `${ stylesHome.text } ${ stylesHome.hideMobile }` }>
-                      <h4>{ interest.brief }</h4>
-                    </div>
-                  </div>
-                ) }
-              </div>
-              <div className={ stylesHome.openInterests }>
-                <img src={ require('../images/' + openInterest.image + '.jpg' ) } class="w3-round w3-image" alt={ openInterest.alt } style={{ width: "200px", height: "auto", objectFit: "contain", padding: "1em" }} />
-                <div className={ stylesHome.text }>
-                  <h4>{ openInterest.brief }</h4>
-                  <div dangerouslySetInnerHTML={ { __html: openInterest.content } }/>
-                </div>
-              </div>
-            </div>
-          </div>
+      <div>
+        <div class="container">
+            <h1>Hire Me Pwease :3c</h1>
+            <p>Help me Mr. Obama.</p>
         </div>
-      </MainLayout>
+
+        <form action="generateResume.php" method="post">
+        <div class="container">
+            <h2>Personal Information</h2>
+            <div class="row">
+                <div class="col">
+                        <div class="form-group">
+                            <label for="firstNameInput">First Name</label>
+                            <input type="firstName" class="form-control" id="firstNameInput" placeholder="Chad, Stacey, Elon, Obama" name="firstName" />
+                        </div>
+                </div>
+                <div class="col">
+                        <div class="form-group">
+                            <label for="lastNameInput">Last Name</label>
+                            <input type="lastName" class="form-control" id="lastNameInput" placeholder="Smith, Musk, Gates, Jobs, etc." name="lastName" />
+                        </div>
+                </div>
+                <div class="col">
+                    <form>
+
+                    </form>
+                </div>
+            </div>
+            <div class="contact-information">
+                <div class="row">
+                    <div class="col">
+                        <label for="emailInput">Email Address</label>
+                        <input type="email" class="form-control" id="emailInput" placeholder="president@uwaterloo.ca" name="email" />
+                    </div>
+                    <div class="col">
+                        <label for="phoneInput">Phone Number</label>
+                        <input type="phone" class="form-control" id="phoneInput" placeholder="1-800-733-6697" name="phoneNumber" />
+                    </div>
+                </div>
+            </div>
+
+            <h2>Experience</h2>
+            <form>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="checkboxExpGoogle" value="Google"/>
+                    <label class="form-check-label" for="checkboxExpGoogle">Google</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="checkboxExpMarijuana" value="Marijuana" />
+                    <label class="form-check-label" for="checkboxExpMarijuana">Professional Marijuana Dealer</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="checkboxExpTesla" value="Tesla" />
+                    <label class="form-check-label" for="checkboxExpTesla">Tesla</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="checkboxExpCaesars" value="Caesars" />
+                    <label class="form-check-label" for="checkboxExpCaesars">Little Caesars</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="checkboxExpWord" value="Word" />
+                    <label class="form-check-label" for="checkboxExpWord">Microsoft Word</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="checkboxExpNone" value="None" />
+                    <label class="form-check-label" for="checkboxExpNone">None</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="checkboxExpAll" value="All" />
+                    <label class="form-check-label" for="checkboxExpAll">All the experience</label>
+                </div>
+            </form>
+
+
+
+            <h2>Hobbies</h2>
+            <form>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="checkboxHobbyAnime" value="Anime" />
+                <label class="form-check-label" for="checkboxHobbyAnime">Anime</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="checkboxHobbyCoin" value="Coin collecting" />
+                <label class="form-check-label" for="checkboxHobbyCoin">Coin collecting</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="checkboxHobbyTibetan" value="Tibetan"/>
+                <label class="form-check-label" for="checkboxHobbyTibetan">Tibetan throat singing</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="checkboxHobbyFanfiction" value="Fanfiction" />
+                <label class="form-check-label" for="checkboxHobbyFanfiction">Fanfiction</label>
+            </div>
+
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="checkboxHobbyReddit" value="Reddit" />
+                <label class="form-check-label" for="checkboxHobbyReddit">Reddit</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="checkboxHobbyLucky" value="Lucky" />
+                <label class="form-check-label" for="checkboxHobbyLucky">I'm feeling lucky ;)</label>
+            </div>
+            </form>
+        </div>
+        <div class="container">
+            <input class="btn btn-primary" type="submit" value="Gimme Job" />
+        </div>
+        </form>
+      </div>
     );
   }
 }
