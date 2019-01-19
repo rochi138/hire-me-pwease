@@ -1,15 +1,29 @@
 import React, { Component } from 'react';
 import styles from '../SCSS/Resume.module.scss';
+import html2canvas from 'html2canvas';
+import * as jsPDF from 'jspdf';
 
 export default class Resume extends Component{
   constructor( props ) {
     super();
   }
 
+  generatePDF() {
+    const input = document.getElementById('resume');
+    html2canvas(input)
+      .then((canvas) => {
+        const imgData = canvas.toDataURL('image/png');
+        const pdf = new jsPDF();
+        pdf.addImage(imgData, 'PNG', 0, 0);
+        pdf.save("my_uwu_wesume.pdf");  
+      });
+    ;
+  }
+
   render(){
     return(
       <div>
-        <div id="Resume" className={ styles.resume }>
+        <div id="resume" className={ styles.resume }>
             <div id="Name" style={{height: "10vw", borderBottom: "3px solid #000000"}}>
                 <h1>Name</h1>
                 <div>
@@ -56,7 +70,7 @@ export default class Resume extends Component{
         </div>
 
         <div class="container">
-            <button type="button" class="btn btn-dark" onClick="generatePDF()">Download Resume</button>
+            <button type="button" class="btn btn-dark" onClick={ () => this.generatePDF() }>Download Resume</button>
         </div>
       </div>
     );
