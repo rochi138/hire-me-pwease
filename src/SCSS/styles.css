@@ -2,16 +2,26 @@
     margin-top: 20px !important;
     margin-bottom: 10px !important;
 }
-h1, h2 {
-    background: linear-gradient(to right, orange , yellow, green, cyan, blue, violet);
+h1 {
+		background: linear-gradient(to right, orange , yellow, cyan, violet);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+h2 {
+		background: linear-gradient(to right, violet, cyan, yellow, orange );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
 }
 
 body{
     background-image: url("../images/halp.PNG");
-    background-size: 100%;
+    background-size: 8%;
+    background-repeat: repeat;
 }
+
 label{
     color: red;
 }
