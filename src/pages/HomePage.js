@@ -2,11 +2,33 @@ import React, { Component } from 'react';
 import '../SCSS/styles.css';
 
 export default class Home extends Component{
-  sample() {
+    constructor(props) {
+        super( props );
+
+        this.state=props.state
+        this.handleChange= this.handleChange.bind(this);
+    }
+
+  // shouldComponentUpdate(nextProps, nextState){
+  //   this.setState( nextProps.state );
+  // }
+
+  generateResume() {
     this.props.history.push( '/resume' );
   }
 
+  updateFields( updatedFields ) {
+    this.props.moveStateUp( { ...this.state.objectUnderEdit, ...updatedFields } );
+    console.log(this.props);
+  }
+
+  handleChange( e ) {
+    console.log('why');
+    this.props.moveStateUp( { ...this.state.objectUnderEdit, ...e.target.value } );
+  }
+
   render(){
+    console.log(this.props.state);
     return(
       <div>
             <div class="container">
@@ -19,7 +41,7 @@ export default class Home extends Component{
                     <div class="col">
                             <div class="form-group">
                                 <label for="firstNameInput">First Name</label>
-                                <input type="firstName" class="form-control" id="firstNameInput" placeholder="Chad, Stacey, Elon, Obama" name="firstName" />
+                                <input type="firstName" class="form-control" id="firstNameInput" placeholder="Chad, Stacey, Elon, Obama" name="firstName" onChange={(e) => this.updateFields({test: e.target.value})} />
                             </div>
                     </div>
                     <div class="col">
@@ -104,7 +126,7 @@ export default class Home extends Component{
                 </div>
             </div>
             <div class="container" style={{ marginTop: "10px" }}>
-                <button class="btn btn-primary" type="submit" value="Gimme Job" onClick={ () => this.sample() }/>
+                <button class="btn btn-primary" type="submit" value="Gimme Job" onClick={ () => this.generateResume() }/>
             </div>
       </div>
     )
