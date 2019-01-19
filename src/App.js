@@ -8,40 +8,47 @@ class App extends Component {
 		super();
 
 		this.state={
-			objectUnderEdit: {
-				test: "",
-				name: {
-					firstName: "",
-					lastname: "",
+			name: {
+				firstName: "",
+				lastname: "",
+			},
+			hobbies: [
+				{
+					title: "Htitle1",
+					description: "Hdescription1",
 				},
-				hobbies: [
-					{
-						title: "Htitle",
-						description: "Hdescription",
-					}
-				],
-				projects: [
-					{
-						title: "Ptitle",
-						description: "Pdescription",
-					}
-				],
-				relevantWork: [
-					{
-						title: "Rtitle",
-						description: "Rdescription",
-					}
-				],
-				languages: [
-					{
-						title: "Ltitle",
-						description: "Ldescription",
-					}
-				],
-				contactInfo: {
-					phone: "420-666-6969",
-					caption: "Tinder me up_",
+				{
+					title: "Htitle2",
+					description: "Hdescription2",
 				}
+			],
+			projects: [
+				{
+					title: "Ptitle1",
+					description: "Pdescription1",
+				},
+				{
+					title: "Ptitle2",
+					description: "Pdescription2",
+				}
+			],
+			relevantWork: [
+				{
+					title: "Rtitle1",
+					description: "Rdescription1",
+				},
+				{
+					title: "Rtitle2",
+					description: "Rdescription2",
+				}
+			],
+			languages: [
+				"LTitle1",
+				"LTitle2"
+			],
+			contactInfo: {
+				phone: "420-666-6969",
+				caption: "Tinder me up_",
 			}
 		}
 
@@ -49,11 +56,10 @@ class App extends Component {
 	}
 
 	moveStateUp( updatedObj ) {
-		this.setState( { objectUnderEdit: updatedObj } );
+		this.setState( { ...updatedObj } );
 	}
 
   render() {
-  	console.log(this.state);
     return (
       <div>
         <Route exact path='/' render={(props) => <Home moveStateUp={ this.moveStateUp } state={this.state} {...props} />} />
