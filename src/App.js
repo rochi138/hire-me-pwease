@@ -45,20 +45,19 @@ class App extends Component {
 				}
 			}
 		}
-		// this.updateData = () => this.updateData.bind(this);
-		// this.test = () => this.test.bind(this);
+
+		this.moveStateUp = this.moveStateUp.bind( this );
 	}
 
-	// updateData( updatedObj ) { 
-	// 	console.log('where');
- //    this.setState( { objectUnderEdit: updatedObj } );
- //  }
+	moveStateUp( updatedObj ) {
+		this.setState( { objectUnderEdit: updatedObj } );
+	}
 
   render() {
   	console.log(this.state);
     return (
       <div>
-        <Route exact path='/' render={(props) => <Home moveStateUp={ (updatedObj) => this.setState( { objectUnderEdit: updatedObj } ) } state={this.state} {...props} />} />
+        <Route exact path='/' render={(props) => <Home moveStateUp={ this.moveStateUp } state={this.state} {...props} />} />
         <Route path='/resume' render={(props) => <Resume state={this.state} {...props} />} />
       </div>
     );
