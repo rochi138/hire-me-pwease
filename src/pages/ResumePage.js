@@ -4,10 +4,6 @@ import html2canvas from 'html2canvas';
 import * as jsPDF from 'jspdf';
 
 export default class Resume extends Component{
-  constructor( props ) {
-    super();
-  }
-
   generatePDF() {
     const input = document.getElementById('resume');
     html2canvas(input)
@@ -21,14 +17,14 @@ export default class Resume extends Component{
   }
 
   render(){
+    var source = this.props.state.objectUnderEdit;
     return(
       <div>
         <div id="resume" className={ styles.resume }>
             <div id="Name" style={{height: "10vw", borderBottom: "3px solid #000000"}}>
                 <h1>Name</h1>
                 <div>
-                    Let's play a game <br />
-                    I spy with my little eye...
+                    { source.test }
                 </div>
             </div>
             <div id="Page" className={ styles.page }>
