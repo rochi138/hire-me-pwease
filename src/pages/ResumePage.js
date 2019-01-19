@@ -24,7 +24,7 @@ export default class Resume extends Component{
             <div id="Name" style={{height: "10vw", borderBottom: "3px solid #000000"}}>
                 <h1>Name</h1>
                 <div>
-                    { source.test }
+                    { source.name.firstName }
                 </div>
             </div>
             <div id="Page" className={ styles.page }>
