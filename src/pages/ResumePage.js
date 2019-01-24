@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styles from '../SCSS/Resume.module.scss';
 import html2canvas from 'html2canvas';
 import * as jsPDF from 'jspdf';
+import { CheckBoxesComponent } from '../components/ResumeComponents';
 
 export default class Resume extends Component{
   generatePDF() {
@@ -30,45 +31,24 @@ export default class Resume extends Component{
             </div>
             <div id="Page" className={ styles.page }>
                 <div className={ styles.left }>
-                    <div id="Hobbies" style={{borderBottom: "3px solid #000000"}}>
-                        <h1>Hobbies</h1>
-                        { source.hobbies.map( ( hobby, i ) =>
-                            <div key = { i }>
-                                <div>
-                                  { hobby.title }
-                                </div>
-                                <div>
-                                  { hobby.description }
-                                </div>
-                            </div>
-                        ) }
-                    </div>
-                    <div id="Projects" style={{borderBottom: "3px solid #000000"}}>
-                        <h1>Projects</h1>
-                        { source.projects.map( ( project, i ) =>
-                            <div key = { i }>
-                                <div>
-                                  { project.title }
-                                </div>
-                                <div>
-                                  { project.description }
-                                </div>
-                            </div>
-                        ) }
-                    </div>
-                    <div id="Relevant Work" style={{borderBottom: "3px solid #000000"}}>
-                        <h1>Relevant Work</h1>
-                        { source.relevantWork.map( ( relevantWork, i ) =>
-                            <div key = { i }>
-                                <div>
-                                  { relevantWork.title }
-                                </div>
-                                <div>
-                                  { relevantWork.description }
-                                </div>
-                            </div>
-                        ) }
-                    </div>
+                    <CheckBoxesComponent 
+                        title="Hobbies"
+                        fileName="Hobbies"
+                        componentName="hobbies"
+                        checkStates={source.hobbies}
+                    />
+                    <CheckBoxesComponent 
+                        title="Projects"
+                        fileName="Projects"
+                        componentName="projects"
+                        checkStates={source.projects}
+                    />
+                    <CheckBoxesComponent 
+                        title="Relevant Work"
+                        fileName="RelevantWork"
+                        componentName="relevantWork"
+                        checkStates={source.relevantWork}
+                    />
                 </div>
                 <div className={ styles.right }>
                     <div id="Languages">

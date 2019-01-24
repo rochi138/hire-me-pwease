@@ -4,14 +4,39 @@
 
 import React, { Component } from 'react';
 import '../SCSS/styles.css';
+import { CheckBoxesComponent } from '../components/HomePageComponents';
 
 export default class Home extends Component{
+  constructor(props) {
+    super(props);
+
+    this.updateHobbies = this.updateHobbies.bind( this );
+    this.updateProjects = this.updateProjects.bind( this );
+    this.updateRelevantWork = this.updateRelevantWork.bind( this );
+  }
+
   generateResume() {
     this.props.history.push( '/resume' );
   }
 
   updateFields( updatedFields ) {
     this.props.moveStateUp( { ...this.props.state, ...updatedFields } );
+  }
+
+  updateName( updatedName ) {
+    this.updateFields( { name: { ...this.props.state.name, ...updatedName } } );
+  }
+
+  updateHobbies( updateHobbies ) {
+    this.updateFields( { hobbies: updateHobbies } );
+  }
+
+  updateProjects( updatedProjects ) {
+    this.updateFields( { projects: updatedProjects } );
+  }
+
+  updateRelevantWork( updatedRelevantWork ) {
+    this.updateFields( { relevantWork: updatedRelevantWork } );
   }
 
   render(){
@@ -27,13 +52,13 @@ export default class Home extends Component{
                 <div class="col">
                     <div class="form-group">
                         <label for="firstNameInput">First Name</label>
-                        <input type="firstName" class="form-control" id="firstNameInput" placeholder="Chad, Stacey, Elon, Obama" name="firstName" onChange={(e) => this.updateFields({ name: {...this.props.state.name, firstName: e.target.value }})} />
+                        <input class="form-control" id="firstNameInput" placeholder="Chad, Stacey, Elon, Obama" name="firstName" onChange={(e) => this.updateName({firstName: e.target.value })} />
                     </div>
                 </div>
                 <div class="col">
                     <div class="form-group">
                         <label for="lastNameInput">Last Name</label>
-                        <input type="lastName" class="form-control" id="lastNameInput" placeholder="Smith, Musk, Gates, Jobs, etc." name="lastName" />
+                        <input class="form-control" id="lastNameInput" placeholder="Smith, Musk, Gates, Jobs, etc." name="lastName" onChange={(e) => this.updateName({lastName: e.target.value })}/>
                     </div>
                 </div>
             </div>
@@ -49,65 +74,27 @@ export default class Home extends Component{
                     </div>
                 </div>
             </div>
-            <div>
-                <h2>Experience</h2>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="checkboxExpGoogle" value="Google"/>
-                    <label class="form-check-label" for="checkboxExpGoogle">Google</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="checkboxExpMarijuana" value="Marijuana" />
-                    <label class="form-check-label" for="checkboxExpMarijuana">Professional Marijuana Dealer</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="checkboxExpTesla" value="Tesla" />
-                    <label class="form-check-label" for="checkboxExpTesla">Tesla</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="checkboxExpCaesars" value="Caesars" />
-                    <label class="form-check-label" for="checkboxExpCaesars">Little Caesars</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="checkboxExpWord" value="Word" />
-                    <label class="form-check-label" for="checkboxExpWord">Microsoft Word</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="checkboxExpNone" value="None" />
-                    <label class="form-check-label" for="checkboxExpNone">None</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="checkboxExpAll" value="All" />
-                    <label class="form-check-label" for="checkboxExpAll">All the experience</label>
-                </div>
-            </div>
-            <div>
-                <h2>Hobbies</h2>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="checkboxHobbyAnime" value="Anime" />
-                    <label class="form-check-label" for="checkboxHobbyAnime">Anime</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="checkboxHobbyCoin" value="Coin collecting" />
-                    <label class="form-check-label" for="checkboxHobbyCoin">Coin collecting</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="checkboxHobbyTibetan" value="Tibetan"/>
-                    <label class="form-check-label" for="checkboxHobbyTibetan">Tibetan throat singing</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="checkboxHobbyFanfiction" value="Fanfiction" />
-                    <label class="form-check-label" for="checkboxHobbyFanfiction">Fanfiction</label>
-                </div>
-
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="checkboxHobbyReddit" value="Reddit" />
-                    <label class="form-check-label" for="checkboxHobbyReddit">Reddit</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="checkbox" id="checkboxHobbyLucky" value="Lucky" />
-                    <label class="form-check-label" for="checkboxHobbyLucky">I'm feeling lucky ;)</label>
-                </div>
-            </div>
+            <CheckBoxesComponent 
+                title="Projects"
+                fileName="Projects"
+                componentName="projects"
+                allTheText="All the Projects"
+                update={ this.updateProjects }
+            />
+            <CheckBoxesComponent 
+                title="Relevant Work"
+                fileName="RelevantWork"
+                componentName="relevantWork"
+                allTheText="All the Relevant Work"
+                update={ this.updateRelevantWork }
+            />
+            <CheckBoxesComponent 
+                title="Hobbies"
+                fileName="Hobbies"
+                componentName="hobbies"
+                allTheText="I'm feeling lucky ;)"
+                update={ this.updateHobbies }
+            />
         </div>
         <div class="container" style={{ marginTop: "10px" }}>
             <button class="btn btn-primary" type="submit" onClick={ () => this.generateResume() }>

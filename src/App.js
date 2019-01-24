@@ -13,36 +13,9 @@ class App extends Component {
 				firstName: "",
 				lastname: "",
 			},
-			hobbies: [
-				{
-					title: "Htitle1",
-					description: "Hdescription1",
-				},
-				{
-					title: "Htitle2",
-					description: "Hdescription2",
-				}
-			],
-			projects: [
-				{
-					title: "Ptitle1",
-					description: "Pdescription1",
-				},
-				{
-					title: "Ptitle2",
-					description: "Pdescription2",
-				}
-			],
-			relevantWork: [
-				{
-					title: "Rtitle1",
-					description: "Rdescription1",
-				},
-				{
-					title: "Rtitle2",
-					description: "Rdescription2",
-				}
-			],
+			hobbies: [],
+			projects: [],
+			relevantWork: [],
 			languages: [
 				"LTitle1",
 				"LTitle2"
