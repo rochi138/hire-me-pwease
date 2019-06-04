@@ -37,7 +37,7 @@ export class CheckBoxesComponent extends Component {
 
 	lucky() {
 		var checkStates = this.state.checkStates;
-		const amount = Math.floor(Math.random() * ( checkStates.length ));
+		const amount = 1 + Math.floor(Math.random() * ( checkStates.length -1 ));
 		for (var i = 0; i < amount; i++) {
 			var rand = Math.floor(Math.random() * ( checkStates.length ));
 			checkStates[ rand ] = !checkStates[ rand ];
@@ -48,25 +48,28 @@ export class CheckBoxesComponent extends Component {
 	render() {
 		return (
 			<div className={ styles.checkboxesComponent }>
-				<div style={{ lineHeight:"80px" }}>
+				<div style={{ lineHeight:"80px", display: "inline-block", backgroundColor: "white"}}>
 					<FontAwesomeIcon icon={ this.state.icon } size="lg"/><h2 style={{ marginLeft: "10px" }}>{ this.state.title }</h2>
 				</div>
-				<div class="form-group row">
+				<div className="form-group row">
 					{ this.state.source.map( ( component, i ) =>
-							<div class="custom-control custom-checkbox col-3" key={ i } onClick={() => this.update( i )}>
-								<input type="checkbox" class="custom-control-input" checked={ (this.state.checkStates[ i ]) ? "checked" : "" }/> 
-								<label class="custom-control-label">{ component.title }</label>
+							<div className="custom-control custom-checkbox col-3" key={ i } onClick={() => this.update( i )}>
+								<input type="checkbox" className="custom-control-input" checked={ (this.state.checkStates[ i ]) ? "checked" : "" }/>
+								{ component.title 
+									? <label className="custom-control-label">{ component.title }</label> 
+									: <label className="custom-control-label">{ component }</label>
+								}
 							</div>
 					) }
 				</div>
-				<div class="form-group row">
-					<div class="custom-control custom-checkbox col-3" onClick={() => this.selectAll()}>
-						<input type="checkbox" class="custom-control-input"/> 
-						<label class="custom-control-label">All the { this.state.title }!</label>
+				<div className="form-group row">
+					<div className="custom-control custom-checkbox col-3" onClick={() => this.selectAll()}>
+						<input type="checkbox" className="custom-control-input"/> 
+						<label className="custom-control-label">All the { this.state.title }!</label>
 					</div>
-					<div class="custom-control custom-checkbox col-3" onClick={() => this.lucky()}>
-						<input type="checkbox" class="custom-control-input"/> 
-						<label class="custom-control-label">I'm feeling lucky ;)</label>
+					<div className="custom-control custom-checkbox col-3" onClick={() => this.lucky()}>
+						<input type="checkbox" className="custom-control-input"/> 
+						<label className="custom-control-label">I'm feeling lucky ;)</label>
 					</div>
 				</div>
 			</div>

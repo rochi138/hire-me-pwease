@@ -3,7 +3,7 @@
     margin-bottom: 10px !important;
 }
 h1 {
-		background: linear-gradient(to right, orange , yellow, cyan, violet);
+            background: linear-gradient(to right, orange , yellow, cyan, violet);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     display: inline-block;
@@ -24,4 +24,5 @@ body{
 
 label{
     color: red;
+    background-color: white;
 }

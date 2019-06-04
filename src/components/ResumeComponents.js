@@ -5,7 +5,8 @@ import {
   faEnvelope,
   faPhone,
   faFireAlt,
-  faHashtag
+	faHashtag,
+	faAddressCard
  } from '@fortawesome/free-solid-svg-icons'
 
 export class CheckBoxesComponent extends Component {
@@ -25,17 +26,24 @@ export class CheckBoxesComponent extends Component {
 		const source = this.state.source;
 		return (
 			<div className={ styles.checkboxesComponent } style={{borderBottom: "3px solid #000000"}}>
-				<h2><FontAwesomeIcon icon={ this.props.icon } size="lg" style={{ marginRight: "10px"}}/> { this.state.title }</h2>
+				<div style={{ display: "inline-block", backgroundColor: "white", paddingRight: "15px"}}>
+					<h2><FontAwesomeIcon icon={ this.props.icon } size="lg" style={{ marginRight: "10px"}}/> { this.state.title }</h2>
+				</div>
 				{ this.state.checkStates.map( ( checkState, i ) =>
             <div key = { i }>
             { checkState &&
             	<div>
-                <div>
-                  { source[i].title }
-                </div>
-                <div>
-                  { source[i].description }
-                </div>
+								{ source[i].title 
+										? <div>
+												<div>
+													{ source[i].title }
+												</div>
+												<div>
+													{ source[i].description }
+												</div>
+											</div>
+										: <div>{ source[i] }</div>
+								}
               </div>
             }
             </div>
@@ -51,7 +59,10 @@ export class ContactInfoSection extends Component {
 		const source = this.props.source;
 		return (
 			<div>
-				<h1>Contact Info</h1>
+				<div style={{ display: "inline-block", backgroundColor: "white", paddingRight: "15px"}}>
+					<FontAwesomeIcon icon={ faAddressCard } style={{ marginRight: "10px"}}/>
+					<h2>Contact Info</h2>
+				</div>
 				<ContactInfoComponent
 					icon={ faEnvelope }
 					info={ source.email }
@@ -80,7 +91,7 @@ class ContactInfoComponent extends Component {
 			<div>
 				{ this.props.info &&
 					<div>
-							<FontAwesomeIcon icon={ this.props.icon } size="md" style={{ marginRight: "5px"}}/>
+							<FontAwesomeIcon icon={ this.props.icon } style={{ marginRight: "5px"}}/>
 							{ this.props.info }
 					</div>
 				}

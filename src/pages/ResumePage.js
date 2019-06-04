@@ -7,10 +7,7 @@ import {
   faPuzzlePiece,
   faWrench,
   faUserTie,
-  faEnvelope,
-  faPhone,
-  faFireAlt,
-  faHashtag
+  faLanguage
  } from '@fortawesome/free-solid-svg-icons'
 
 export default class Resume extends Component{
@@ -32,7 +29,9 @@ export default class Resume extends Component{
       <div>
         <div id="resume" className={ styles.resume }>
             <div id="Name" style={{height: "10vw", borderBottom: "3px solid #000000"}}>
-                <h1>Name</h1>
+                <div style={{ display: "inline-block", backgroundColor: "white", paddingRight: "15px"}}>
+                    <h1>Name</h1>
+                </div>
                 <div>
                     { source.name.firstName }
                     { source.name.lastName }
@@ -63,14 +62,13 @@ export default class Resume extends Component{
                     />
                 </div>
                 <div className={ styles.right }>
-                    <div id="Languages">
-                        <h1>Languages</h1>
-                        { source.languages.map( ( language, i ) =>
-                            <div key = { i }>
-                              { language }
-                            </div>
-                        ) }
-                    </div>
+                    <CheckBoxesComponent 
+                        title="Languages"
+                        fileName="Languages"
+                        componentName="languages"
+                        icon={ faLanguage }
+                        checkStates={source.languages}
+                    />
                     <ContactInfoSection
                       source = { source.contactInfo }
                     />
@@ -78,8 +76,8 @@ export default class Resume extends Component{
             </div>
         </div>
 
-        <div class="container">
-            <button type="button" class="btn btn-dark" onClick={ () => this.generatePDF() }>Download Resume</button>
+        <div className="container">
+            <button type="button" className="btn btn-dark" onClick={ () => this.generatePDF() }>Download Resume</button>
         </div>
       </div>
     );

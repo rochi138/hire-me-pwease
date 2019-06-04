@@ -15,10 +15,7 @@ class App extends Component {
 			hobbies: [],
 			projects: [],
 			relevantWork: [],
-			languages: [
-				"LTitle1",
-				"LTitle2"
-			],
+			languages: [],
 			contactInfo: {
 				phone: "",
 				email: "",
