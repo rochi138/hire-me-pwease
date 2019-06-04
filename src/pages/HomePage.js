@@ -6,6 +6,10 @@ import React, { Component } from 'react';
 import '../SCSS/styles.css';
 import { CheckBoxesComponent } from '../components/HomePageComponents';
 import { Form } from 'reactstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { 
+  faPuzzlePiece
+ } from '@fortawesome/free-solid-svg-icons'
 
 export default class Home extends Component{
   constructor(props) {
@@ -94,6 +98,7 @@ export default class Home extends Component{
                 componentName="hobbies"
                 update={ this.updateHobbies }
             />
+            <FontAwesomeIcon icon={ faPuzzlePiece } />
           <div class="container" style={{ marginTop: "10px" }}>
               <button class="btn btn-primary" type="submit" onClick={ () => this.generateResume() }>
                   Gimme Job
