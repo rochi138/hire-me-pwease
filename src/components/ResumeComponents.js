@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
 import styles from '../SCSS/HomePage.module.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { 
+  faEnvelope,
+  faPhone,
+  faFireAlt,
+  faHashtag
+ } from '@fortawesome/free-solid-svg-icons'
 
 export class CheckBoxesComponent extends Component {
 	constructor(props){
@@ -18,7 +25,7 @@ export class CheckBoxesComponent extends Component {
 		const source = this.state.source;
 		return (
 			<div className={ styles.checkboxesComponent } style={{borderBottom: "3px solid #000000"}}>
-				<h2>{ this.state.title }</h2>
+				<h2><FontAwesomeIcon icon={ this.props.icon } size="lg" style={{ marginRight: "10px"}}/> { this.state.title }</h2>
 				{ this.state.checkStates.map( ( checkState, i ) =>
             <div key = { i }>
             { checkState &&
@@ -34,6 +41,50 @@ export class CheckBoxesComponent extends Component {
             </div>
         ) }
 			</div>
+		)
+	}
+}
+
+export class ContactInfoSection extends Component {
+
+	render() {
+		const source = this.props.source;
+		return (
+			<div>
+				<h1>Contact Info</h1>
+				<ContactInfoComponent
+					icon={ faEnvelope }
+					info={ source.email }
+				/>
+				<ContactInfoComponent
+					icon={ faPhone }
+					info={ source.phone }
+				/>
+				<ContactInfoComponent
+					icon={ faFireAlt }
+					info={ source.tinder }
+				/>
+				<ContactInfoComponent
+					icon={ faHashtag }
+					info={ source.instagram }
+				/>
+		</div>
+		)
+	}
+}
+
+class ContactInfoComponent extends Component {
+
+	render() {
+		return (
+			<div>
+				{ this.props.info &&
+					<div>
+							<FontAwesomeIcon icon={ this.props.icon } size="md" style={{ marginRight: "5px"}}/>
+							{ this.props.info }
+					</div>
+				}
+		</div>
 		)
 	}
 }
