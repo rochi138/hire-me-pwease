@@ -20,8 +20,10 @@ class App extends Component {
 				"LTitle2"
 			],
 			contactInfo: {
-				phone: "420-666-6969",
-				caption: "Tinder me up_",
+				phone: "",
+				email: "",
+				tinder: "",
+				instagram: ""
 			}
 		}
 

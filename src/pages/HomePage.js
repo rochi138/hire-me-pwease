@@ -38,6 +38,10 @@ export default class Home extends Component{
     this.updateFields( { name: { ...this.props.state.name, ...updatedName } } );
   }
 
+  updateContactInfo( updatedContactInfo ) {
+    this.updateFields( {contactInfo: {...this.props.state.contactInfo, ...updatedContactInfo } } );
+  }
+
   updateHobbies( updateHobbies ) {
     this.updateFields( { hobbies: updateHobbies } );
   }
@@ -79,22 +83,22 @@ export default class Home extends Component{
                   <div class="col">
                     <FontAwesomeIcon icon={ faEnvelope } size="md" style={{ marginRight: "5px"}}/>
                     <label for="emailInput">Email Address</label>
-                    <input class="form-control" placeholder="president@uwaterloo.ca" />
+                    <input class="form-control" placeholder="president@uwaterloo.ca" onChange={(e) => this.updateContactInfo({email: e.target.value })} />
                   </div>
                   <div class="col">
                     <FontAwesomeIcon icon={ faPhone } size="md" style={{ marginRight: "5px"}}/>
                     <label for="phoneInput">Phone Number</label>
-                    <input class="form-control" placeholder="1-800-267-2001" />
+                    <input class="form-control" placeholder="666-420-6969" onChange={(e) => this.updateContactInfo({phone: e.target.value })} />
                   </div>
                   <div class="col">
                     <FontAwesomeIcon icon={ faFireAlt } size="md" style={{ marginRight: "5px"}}/>
                     <label for="phoneInput">Tinder Profile</label>
-                    <input class="form-control" placeholder="looking4truluv" />
+                    <input class="form-control" placeholder="looking4truluv" onChange={(e) => this.updateContactInfo({tinder: e.target.value })} />
                   </div>
                   <div class="col">
                     <FontAwesomeIcon icon={ faHashtag } size="md" style={{ marginRight: "5px"}}/>
                     <label for="phoneInput">Instagram</label>
-                    <input class="form-control" placeholder="@BarackObama" />
+                    <input class="form-control" placeholder="@BarackObama" onChange={(e) => this.updateContactInfo({instagram: e.target.value })} />
                   </div>
                 </div>
             </div>

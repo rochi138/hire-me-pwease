@@ -2,7 +2,16 @@ import React, { Component } from 'react';
 import styles from '../SCSS/Resume.module.scss';
 import html2canvas from 'html2canvas';
 import * as jsPDF from 'jspdf';
-import { CheckBoxesComponent } from '../components/ResumeComponents';
+import { CheckBoxesComponent, ContactInfoSection } from '../components/ResumeComponents';
+import { 
+  faPuzzlePiece,
+  faWrench,
+  faUserTie,
+  faEnvelope,
+  faPhone,
+  faFireAlt,
+  faHashtag
+ } from '@fortawesome/free-solid-svg-icons'
 
 export default class Resume extends Component{
   generatePDF() {
@@ -35,18 +44,21 @@ export default class Resume extends Component{
                         title="Hobbies"
                         fileName="Hobbies"
                         componentName="hobbies"
+                        icon={ faPuzzlePiece }
                         checkStates={source.hobbies}
                     />
                     <CheckBoxesComponent 
                         title="Projects"
                         fileName="Projects"
                         componentName="projects"
+                        icon={ faWrench }
                         checkStates={source.projects}
                     />
                     <CheckBoxesComponent 
                         title="Relevant Work"
                         fileName="RelevantWork"
                         componentName="relevantWork"
+                        icon={ faUserTie }
                         checkStates={source.relevantWork}
                     />
                 </div>
@@ -59,15 +71,9 @@ export default class Resume extends Component{
                             </div>
                         ) }
                     </div>
-                    <div id="Contact Info">
-                        <h1>Contact Info</h1>
-                        <div>
-                            { source.contactInfo.phone }
-                        </div>
-                        <div>
-                            { source.contactInfo.caption }
-                        </div>
-                    </div>
+                    <ContactInfoSection
+                      source = { source.contactInfo }
+                    />
                 </div>
             </div>
         </div>
