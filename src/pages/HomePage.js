@@ -8,7 +8,13 @@ import { CheckBoxesComponent } from '../components/HomePageComponents';
 import { Form } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { 
-  faPuzzlePiece
+  faPuzzlePiece,
+  faWrench,
+  faUserTie,
+  faEnvelope,
+  faPhone,
+  faFireAlt,
+  faHashtag
  } from '@fortawesome/free-solid-svg-icons'
 
 export default class Home extends Component{
@@ -71,12 +77,24 @@ export default class Home extends Component{
             <div class="contact-information">
                 <div class="row">
                   <div class="col">
-                      <label for="emailInput">Email Address</label>
-                      <input class="form-control" placeholder="president@uwaterloo.ca" />
+                    <FontAwesomeIcon icon={ faEnvelope } size="md" style={{ marginRight: "5px"}}/>
+                    <label for="emailInput">Email Address</label>
+                    <input class="form-control" placeholder="president@uwaterloo.ca" />
                   </div>
                   <div class="col">
-                      <label for="phoneInput">Phone Number</label>
-                      <input class="form-control" placeholder="1-800-267-2001" />
+                    <FontAwesomeIcon icon={ faPhone } size="md" style={{ marginRight: "5px"}}/>
+                    <label for="phoneInput">Phone Number</label>
+                    <input class="form-control" placeholder="1-800-267-2001" />
+                  </div>
+                  <div class="col">
+                    <FontAwesomeIcon icon={ faFireAlt } size="md" style={{ marginRight: "5px"}}/>
+                    <label for="phoneInput">Tinder Profile</label>
+                    <input class="form-control" placeholder="looking4truluv" />
+                  </div>
+                  <div class="col">
+                    <FontAwesomeIcon icon={ faHashtag } size="md" style={{ marginRight: "5px"}}/>
+                    <label for="phoneInput">Instagram</label>
+                    <input class="form-control" placeholder="@BarackObama" />
                   </div>
                 </div>
             </div>
@@ -84,30 +102,25 @@ export default class Home extends Component{
                 title="Projects"
                 fileName="Projects"
                 componentName="projects"
+                icon={ faWrench }
                 update={ this.updateProjects }
             />
             <CheckBoxesComponent 
                 title="Relevant Work"
                 fileName="RelevantWork"
                 componentName="relevantWork"
+                icon={ faUserTie }
                 update={ this.updateRelevantWork }
             />
             <CheckBoxesComponent 
                 title="Hobbies"
                 fileName="Hobbies"
                 componentName="hobbies"
+                icon={ faPuzzlePiece }
                 update={ this.updateHobbies }
             />
-            <FontAwesomeIcon icon={ faPuzzlePiece } />
-          <div class="container" style={{ marginTop: "10px" }}>
-              <button class="btn btn-primary" type="submit" onClick={ () => this.generateResume() }>
-                  Gimme Job
-              </button>
-          </div>
-          <div class="form-group row">
-            <div class="offset-4 col-8">
-              <button name="submit" type="submit" class="btn btn-primary">Submit</button>
-            </div>
+          <div class="form-group row" style={{ marginTop: "10px", textAlign: "center" }}>
+              <button class="btn btn-primary" onClick={ () => this.generateResume() }>Submit</button>
           </div>
         </Form>
         </div>
