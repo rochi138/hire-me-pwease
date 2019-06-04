@@ -70,7 +70,7 @@ export default class Home extends Component{
                     </div>
                     <div class="col">
                         <label for="phoneInput">Phone Number</label>
-                        <input type="phone" class="form-control" id="phoneInput" placeholder="1-800-733-6697" name="phoneNumber" />
+                        <input type="phone" class="form-control" id="phoneInput" placeholder="1-800-267-2001" name="phoneNumber" />
                     </div>
                 </div>
             </div>
