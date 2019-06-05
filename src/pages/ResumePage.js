@@ -77,7 +77,7 @@ export default class Resume extends Component{
         </div>
 
         <div className="container">
-            <button type="button" className="btn btn-dark" onClick={ () => this.generatePDF() }>Download Resume</button>
+            <button type="button" className="btn btn-dark" onClick={ () => this.generatePDF() }>¯\_(ツ)_/¯</button>
         </div>
       </div>
     );
