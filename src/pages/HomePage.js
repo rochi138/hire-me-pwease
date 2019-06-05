@@ -141,7 +141,7 @@ export default class Home extends Component{
                 update={ this.updateHobbies }
             />
           <div className="form-group row" style={{ marginTop: "10px", textAlign: "center" }}>
-              <button className="btn btn-primary" onClick={ () => this.generateResume() }>Submit</button>
+              <button className="btn btn-primary" onClick={ () => this.generateResume() }>Hit Me With Your Best Shot</button>
           </div>
         </Form>
         </div>
