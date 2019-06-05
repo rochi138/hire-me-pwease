@@ -1,3 +1,5 @@
+//For whatever reason, download button does not work BELOW the resume??
+
 import React, { Component } from 'react';
 import styles from '../SCSS/Resume.module.scss';
 import html2canvas from 'html2canvas';
@@ -8,7 +10,8 @@ import {
   faWrench,
   faUserTie,
   faLanguage
- } from '@fortawesome/free-solid-svg-icons'
+ } from '@fortawesome/free-solid-svg-icons';
+ import Pdf from 'react-to-pdf';
 
 export default class Resume extends Component{
   generatePDF() {
@@ -24,10 +27,16 @@ export default class Resume extends Component{
   }
 
   render(){
+    const ref = React.createRef();
     var source = this.props.state;
     return(
       <div>
-        <div id="resume" className={ styles.resume }>
+        <div className="container">
+          <Pdf targetRef={ref} filename="my_uwu_wesume.pdf">
+            {({ toPdf }) => <button onClick={toPdf}>¯\_(ツ)_/¯</button>}
+          </Pdf>
+        </div>
+        <div ref={ref} id="resume" className={ styles.resume }>
             <div id="Name" style={{height: "10vw", borderBottom: "3px solid #000000"}}>
                 <div style={{ display: "inline-block", backgroundColor: "white", paddingRight: "15px"}}>
                     <h1>Name</h1>
@@ -74,10 +83,6 @@ export default class Resume extends Component{
                     />
                 </div>
             </div>
-        </div>
-
-        <div className="container">
-            <button type="button" className="btn btn-dark" onClick={ () => this.generatePDF() }>¯\_(ツ)_/¯</button>
         </div>
       </div>
     );
