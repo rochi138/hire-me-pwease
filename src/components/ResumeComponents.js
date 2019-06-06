@@ -9,6 +9,22 @@ import {
 	faAddressCard
  } from '@fortawesome/free-solid-svg-icons'
 
+function getOffsetMargins ( multiplier ) {
+	return getOffsetMarginVert ( multiplier ) + " " + getOffsetMarginHorz ( multiplier ) + " " + getOffsetMarginVert ( multiplier ) + " " + getOffsetMarginHorz ( multiplier );
+}
+
+function getOffsetMarginHorz ( multiplier ) {
+	return getOffsetNum( multiplier ) + "px";
+}
+
+function getOffsetMarginVert ( multiplier ) {
+	return Math.abs( getOffsetNum( multiplier / 2 ) ) + "px";
+}
+
+function getOffsetNum ( multiplier ) {
+	return multiplier * ( Math.floor(Math.random() * ( 4 ) ) -2 );
+}
+
 export class CheckBoxesComponent extends Component {
 	constructor(props){
 		super(props);
@@ -25,7 +41,7 @@ export class CheckBoxesComponent extends Component {
 	render() {
 		const source = this.state.source;
 		return (
-			<div className={ styles.checkboxesComponent } style={{borderBottom: "3px solid #000000"}}>
+			<div className={ styles.checkboxesComponent } style={{borderBottom: "3px solid #000000", margin: getOffsetMargins(10) }}>
 				<div style={{ display: "inline-block", backgroundColor: "white", paddingRight: "15px"}}>
 					<h2><FontAwesomeIcon icon={ this.props.icon } size="lg" style={{ marginRight: "10px"}}/> { this.state.title }</h2>
 				</div>
@@ -35,14 +51,14 @@ export class CheckBoxesComponent extends Component {
             	<div>
 								{ source[i].title 
 										? <div>
-												<div>
+												<div style={{ margin: getOffsetMargins(8) }}>
 													{ source[i].title }
 												</div>
-												<div>
+												<div style={{ margin: getOffsetMargins(8) }}>
 													{ source[i].description }
 												</div>
 											</div>
-										: <div>{ source[i] }</div>
+										: <div style={{ margin: getOffsetMargins(4) }}>{ source[i] }</div>
 								}
               </div>
             }
@@ -90,8 +106,8 @@ class ContactInfoComponent extends Component {
 		return (
 			<div>
 				{ this.props.info &&
-					<div>
-							<FontAwesomeIcon icon={ this.props.icon } style={{ marginRight: "5px"}}/>
+					<div style={{ margin: getOffsetMargins(4) }}>
+							<FontAwesomeIcon icon={ this.props.icon } style={{ marginRight: getOffsetMarginHorz(3) }}/>
 							{ this.props.info }
 					</div>
 				}
