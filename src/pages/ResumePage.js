@@ -1,4 +1,7 @@
-//For whatever reason, download button does not work BELOW the resume??
+// For whatever reason, download button does not work BELOW the resume??
+// Resizing window affects pdf
+// Lost font-awesome
+// Honestly just saving the webpage as a pdf from the browser works better
 
 import React, { Component } from 'react';
 import styles from '../SCSS/Resume.module.scss';
