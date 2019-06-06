@@ -10,15 +10,12 @@ import {
  } from '@fortawesome/free-solid-svg-icons'
 
 function getOffsetMargins ( multiplier ) {
-	return getOffsetMarginVert ( multiplier ) + " " + getOffsetMarginHorz ( multiplier ) + " " + getOffsetMarginVert ( multiplier ) + " " + getOffsetMarginHorz ( multiplier );
-}
-
-function getOffsetMarginHorz ( multiplier ) {
-	return getOffsetNum( multiplier ) + "px";
-}
-
-function getOffsetMarginVert ( multiplier ) {
-	return Math.abs( getOffsetNum( multiplier / 2 ) ) + "px";
+	return (
+		Math.abs( getOffsetNum( multiplier / 2 ) ) + "px " + 
+		getOffsetNum( multiplier ) + "px " + 
+		Math.abs( getOffsetNum( multiplier / 2 ) ) + "px " + 
+		getOffsetNum( multiplier ) + "px"
+	);
 }
 
 function getOffsetNum ( multiplier ) {
@@ -26,6 +23,7 @@ function getOffsetNum ( multiplier ) {
 }
 
 export class CheckBoxesComponent extends Component {
+
 	constructor(props){
 		super(props);
 
@@ -107,7 +105,7 @@ class ContactInfoComponent extends Component {
 			<div>
 				{ this.props.info &&
 					<div style={{ margin: getOffsetMargins(4) }}>
-							<FontAwesomeIcon icon={ this.props.icon } style={{ marginRight: getOffsetMarginHorz(3) }}/>
+							<FontAwesomeIcon icon={ this.props.icon } style={{ marginRight: (getOffsetNum( 3 ) + "px") }}/>
 							{ this.props.info }
 					</div>
 				}
