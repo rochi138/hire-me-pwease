@@ -56,8 +56,8 @@ export class CheckBoxesComponent extends Component {
             	<div>
 								{ source[i].title || source[i].icon
 										? <div>
-												<div>
-														<FontAwesomeIcon icon={ source[i].icon } size="8x"/>
+												<div style={{ fontSize: "1em", fontWeight: "bold" }}>
+														<FontAwesomeIcon icon={ source[i].icon } size={ source[i].title ? "2x" : "4x" }/>
 														{ source[i].title }
 												</div>
 												<div style={{ margin: getOffsetMargins(8) }}>
