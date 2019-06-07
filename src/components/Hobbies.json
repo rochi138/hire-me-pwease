@@ -27,7 +27,7 @@
 		{
 			"title": "<div style={{ color: \"black\"}}>puzzles</div>",
 			"description": "puz <3",
-			"icon": "faChess"
+			"icon": "puzzle-piece"
 		}
 	]
 }

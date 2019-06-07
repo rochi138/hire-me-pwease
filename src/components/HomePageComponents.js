@@ -7,12 +7,14 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 
 // 1. import from
 import { 
-	faChessKing
+	faChessKing,
+	faPuzzlePiece
 } from '@fortawesome/free-solid-svg-icons';
 
 // 2. add to library
 library.add( 
-	faChessKing 
+	faChessKing,
+	faPuzzlePiece
 );
 
 // 3. add as "icon" to Hobbies.json; check library name from fontawesome website
@@ -73,7 +75,7 @@ export class CheckBoxesComponent extends Component {
 								<input type="checkbox" className="custom-control-input" checked={ (this.state.checkStates[ i ]) ? "checked" : "" }/>
 								{ component.title || component.icon
 									? <label className="custom-control-label">
-											<FontAwesomeIcon icon={ component.icon } size="8x"/>
+											<FontAwesomeIcon icon={ component.icon } size={ component.title ? "2x" : "4x" }/>
 											{ component.title }
 										</label> 
 									: <label className="custom-control-label">{ component }</label>
