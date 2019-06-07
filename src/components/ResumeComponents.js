@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
 import styles from '../SCSS/HomePage.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { library } from '@fortawesome/fontawesome-svg-core';
+
 import { 
   faEnvelope,
   faPhone,
   faFireAlt,
 	faHashtag,
-	faAddressCard
- } from '@fortawesome/free-solid-svg-icons'
+	faAddressCard,
+	faChessKing
+} from '@fortawesome/free-solid-svg-icons';
+
+library.add( 
+	faChessKing 
+);
 
 function getOffsetMargins ( multiplier ) {
 	return (
@@ -47,10 +54,11 @@ export class CheckBoxesComponent extends Component {
             <div key = { i }>
             { checkState &&
             	<div>
-								{ source[i].title 
+								{ source[i].title || source[i].icon
 										? <div>
-												<div style={{ margin: getOffsetMargins(8) }}>
-													{ source[i].title }
+												<div>
+														<FontAwesomeIcon icon={ source[i].icon } size="8x"/>
+														{ source[i].title }
 												</div>
 												<div style={{ margin: getOffsetMargins(8) }}>
 													{ source[i].description }

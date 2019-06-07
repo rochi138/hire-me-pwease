@@ -7,7 +7,6 @@ import {
     faUserTie,
     faLanguage
  } from '@fortawesome/free-solid-svg-icons';
-import Pdf from 'react-to-pdf';
 import Doc from './DocService';
 import PdfContainer from './PdfContainer';
 

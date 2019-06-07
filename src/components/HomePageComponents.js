@@ -1,6 +1,22 @@
 import React, { Component } from 'react';
 import styles from '../SCSS/HomePage.module.scss';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+
+//To put icons in checkboxes:
+
+// 1. import from
+import { 
+	faChessKing
+} from '@fortawesome/free-solid-svg-icons';
+
+// 2. add to library
+library.add( 
+	faChessKing 
+);
+
+// 3. add as "icon" to Hobbies.json; check library name from fontawesome website
+// 4. repeat step 1 and 2 in ResumeComponents.js
 
 export class CheckBoxesComponent extends Component {
 	constructor(props){
@@ -55,8 +71,11 @@ export class CheckBoxesComponent extends Component {
 					{ this.state.source.map( ( component, i ) =>
 							<div className="custom-control custom-checkbox col-3" key={ i } onClick={() => this.update( i )}>
 								<input type="checkbox" className="custom-control-input" checked={ (this.state.checkStates[ i ]) ? "checked" : "" }/>
-								{ component.title 
-									? <label className="custom-control-label">{ component.title }</label> 
+								{ component.title || component.icon
+									? <label className="custom-control-label">
+											<FontAwesomeIcon icon={ component.icon } size="8x"/>
+											{ component.title }
+										</label> 
 									: <label className="custom-control-label">{ component }</label>
 								}
 							</div>

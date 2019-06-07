@@ -19,6 +19,15 @@
 		{
 			"title": "Fanfction",
 			"description": "E. L. James managed to make it big with her Twilight fanfiction, Fifty Shades of Grey. I aspire to be her one day and get my WattPad account famout."
+		},
+		{
+			"description": "CHESS <3",
+			"icon": "chess-king"
+		},
+		{
+			"title": "<div style={{ color: \"black\"}}>puzzles</div>",
+			"description": "puz <3",
+			"icon": "faChess"
 		}
 	]
 }
