@@ -42,7 +42,10 @@ export default class Resume extends Component{
                                             <h1>Name</h1>
                                         </div>
                                         <div style={{ display: "inline-block", backgroundColor: "white"}}>
-                                            So like the name's on here somewhere... probably
+                                            { source.name.lastName || source.name.firstName
+                                                ? <div>So like the name's on here somewhere... probably</div>
+                                                : <div> A rose by any other name would smell as sweet (John 12:16) </div>
+                                            }
                                         </div>
                                     </div>
                                     <div className={ styles.page }>
