@@ -36,18 +36,20 @@ export default class Resume extends Component{
         return(
             <div>
                 <div class={ "app-defaults theme-" + this.props.state.theme }>
+                    <div class="background" />
                     <div class="app-container">
                         <div class="container">
                             <React.Fragment>
                                 <PdfContainer createPdf={this.createPdf}>
                                     <React.Fragment>
                                         <div style={{ position: "relative" }}>
+                                            <div class="resumeBackground" />
                                             <div class="name" style={{ transform: getTransform(), left: getPosition(), top: getPosition() }}>
                                                 &nbsp; &nbsp; &nbsp; { source.name.lastName } <br /> { source.name.firstName }
                                             </div>
                                             <div class="resume" >
-                                                <div style={{height: "10vw", borderBottom: "3px solid #000000", zIndex: "2"}}>
-                                                    <div style={{ display: "inline-block", backgroundColor: "white", paddingRight: "15px"}}>
+                                                <div style={{height: "10vw", borderBottom: "3px solid #000000", zIndex: "1"}}>
+                                                    <div class="heading">
                                                         <h1>Name</h1>
                                                     </div>
                                                     <div style={{ display: "inline-block", backgroundColor: "white"}}>
