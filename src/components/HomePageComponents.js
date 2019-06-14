@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styles from '../SCSS/HomePage.module.scss';
+import '../SCSS/HomePage.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 
@@ -65,32 +65,33 @@ export class CheckBoxesComponent extends Component {
 
 	render() {
 		return (
-			<div class="checkboxesComponent" >
+			<div className="checkboxesComponent" >
 				<div style={{ lineHeight:"80px", display: "inline-block", backgroundColor: "white"}}>
-					<FontAwesomeIcon icon={ this.state.icon } size="lg"/><h2 style={{ marginLeft: "10px" }}>{ this.state.title }</h2>
+					{ this.state.icon && <FontAwesomeIcon icon={ this.state.icon } size="4x"/> }
+					<h2 style={{ marginLeft: "10px" }}>{ this.state.title }</h2>
 				</div>
-				<div class="form-group row">
+				<div className="form-group row">
 					{ this.state.source.map( ( component, i ) =>
-							<div class="custom-control custom-checkbox col-3" key={ i } onClick={() => this.update( i )}>
-								<input type="checkbox" class="custom-control-input" checked={ (this.state.checkStates[ i ]) ? "checked" : "" }/>
+							<div className="custom-control custom-checkbox col-3" key={ i } onClick={() => this.update( i )}>
+								<input type="checkbox" className="custom-control-input" checked={ (this.state.checkStates[ i ]) ? "checked" : "" } onChange={ ()=> {} }/>
 								{ component.title || component.icon
-									? <label class="custom-control-label">
-											<FontAwesomeIcon icon={ component.icon } size={ component.title ? "2x" : "4x" }/>
+									? <label className="custom-control-label">
+											{ component.icon && <FontAwesomeIcon icon={ component.icon } size={ component.title ? "2x" : "3x" }/> }
 											{ component.title }
 										</label> 
-									: <label class="custom-control-label">{ component }</label>
+									: <label className="custom-control-label">{ component }</label>
 								}
 							</div>
 					) }
 				</div>
-				<div class="form-group row">
-					<div class="custom-control custom-checkbox col-3" onClick={() => this.selectAll()}>
-						<input type="checkbox" class="custom-control-input"/> 
-						<label class="custom-control-label">All the { this.state.title }!</label>
+				<div className="form-group row">
+					<div className="custom-control custom-checkbox col-3" onClick={() => this.selectAll()}>
+						<input type="checkbox" className="custom-control-input"/> 
+						<label className="custom-control-label">All the { this.state.title }!</label>
 					</div>
-					<div class="custom-control custom-checkbox col-3" onClick={() => this.lucky()}>
-						<input type="checkbox" class="custom-control-input"/> 
-						<label class="custom-control-label">I'm feeling lucky ;)</label>
+					<div className="custom-control custom-checkbox col-3" onClick={() => this.lucky()}>
+						<input type="checkbox" className="custom-control-input"/> 
+						<label className="custom-control-label">I'm feeling lucky ;)</label>
 					</div>
 				</div>
 			</div>

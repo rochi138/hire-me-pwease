@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styles from '../SCSS/Resume.module.scss';
+import '../SCSS/Resume.module.scss';
 import { CheckBoxesComponent, ContactInfoSection } from '../components/ResumeComponents';
 import { 
     faPuzzlePiece,
