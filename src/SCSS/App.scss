@@ -1,0 +1,74 @@
+@import 'themes.scss';
+@import 'Resume.module.scss';
+
+.app-defaults {
+  color: red;
+  background-image: url("../images/halp.PNG");
+  background-size: 8%;
+  background-repeat: repeat;
+  font-size: 12px !important;
+  
+  .h1, .h2, .h3, h1, h2, h3 {
+    color: black;
+    margin-top: 20px !important;
+    margin-bottom: 10px !important;
+  }
+  h1 {
+              background: linear-gradient(to right, orange , yellow, cyan, violet);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+      font-size: 36px !important;
+  }
+
+  h2 {
+      background: linear-gradient(to right, violet, cyan, yellow, orange );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: inline-block;
+      font-size: 24px !important;
+  }
+
+  .name{
+    color: red;
+  }
+
+  .button{
+    color: purple;
+  }
+}
+
+.app-container {
+  @include themify($themes) {
+    color: themed('textColor');  
+    background-color: themed('backgroundColor');  
+  }
+
+  .title {
+    font-family: sans-serif;
+    font-weight: lighter;
+  }
+
+  .button {
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 15px 32px;
+    display: inline-block;
+    transition: color 0.1s, border-color 0.1s, background-color 0.1s;
+
+    @include themify($themes) {
+      border: themed('buttonBorder');
+      color: themed('buttonTextColor'); 
+      border-color: themed('buttonTextColor');
+      background-color: themed('buttonColor');
+      text-transform: themed('buttonTextTransform');
+
+      &:hover {
+        color: themed('buttonTextHoverColor'); 
+        border-color: themed('buttonTextHoverColor');
+        background-color: themed('buttonHoverColor');
+      }
+    }
+
+  } 
+}
