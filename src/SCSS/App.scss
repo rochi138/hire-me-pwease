@@ -3,15 +3,10 @@
 
 .app-defaults {
   color: red;
-  background-image: url("../images/halp.PNG");
-  background-size: 8%;
-  background-repeat: repeat;
   font-size: 12px !important;
   
   .h1, .h2, .h3, h1, h2, h3 {
     color: black;
-    margin-top: 20px !important;
-    margin-bottom: 10px !important;
   }
   h1 {
               background: linear-gradient(to right, orange , yellow, cyan, violet);
@@ -36,12 +31,27 @@
   .button{
     color: purple;
   }
+
+  .heading {
+    display: inline-block;
+    color: black;  
+    background-color: white;  
+  }
+
+  .background {
+    z-index: -1;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-image: url("../images/halp.PNG");
+    background-size: 8%;
+    background-repeat: repeat;
+  }
 }
 
 .app-container {
   @include themify($themes) {
     color: themed('textColor');  
-    background-color: themed('backgroundColor');  
   }
 
   .title {
@@ -69,6 +79,18 @@
         background-color: themed('buttonHoverColor');
       }
     }
+  }
+  
+  .heading {
+    @include themify($themes) {
+        color: themed('textColor');  
+        background-color: themed('backgroundColor');
+    }
+  }
+}
 
-  } 
+.background {
+  @include themify($themes) {
+    filter: themed('backgroundFilter');
+  }
 }

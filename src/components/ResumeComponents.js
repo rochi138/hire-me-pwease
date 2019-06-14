@@ -47,8 +47,8 @@ export class CheckBoxesComponent extends Component {
 		const source = this.state.source;
 		return (
 			<div class="checkboxesComponent" style={{borderBottom: "3px solid #000000", margin: getOffsetMargins(10) }}>
-				<div style={{ display: "inline-block", backgroundColor: "white", paddingRight: "15px"}}>
-					<h2><FontAwesomeIcon icon={ this.props.icon } size="lg" style={{ marginRight: "10px"}}/> { this.state.title }</h2>
+				<div class="heading" >
+					<FontAwesomeIcon icon={ this.props.icon } size="3x" style={{ marginRight: "10px"}}/><h2> { this.state.title }</h2>
 				</div>
 				{ this.state.checkStates.map( ( checkState, i ) =>
             <div key = { i }>
@@ -81,7 +81,7 @@ export class ContactInfoSection extends Component {
 		const source = this.props.source;
 		return (
 			<div>
-				<div style={{ display: "inline-block", backgroundColor: "white", paddingRight: "15px"}}>
+				<div class="heading" >
 					<FontAwesomeIcon icon={ faAddressCard } style={{ marginRight: "10px"}}/>
 					<h2>Contact Info</h2>
 				</div>

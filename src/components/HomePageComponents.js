@@ -66,7 +66,7 @@ export class CheckBoxesComponent extends Component {
 	render() {
 		return (
 			<div className="checkboxesComponent" >
-				<div style={{ lineHeight:"80px", display: "inline-block", backgroundColor: "white"}}>
+				<div className="heading">
 					{ this.state.icon && <FontAwesomeIcon icon={ this.state.icon } size="4x"/> }
 					<h2 style={{ marginLeft: "10px" }}>{ this.state.title }</h2>
 				</div>

@@ -68,16 +68,17 @@ export default class Home extends Component{
                     }
                 </div>
                 <div className={ "app-defaults theme-" + this.props.state.theme }>
+                    <div class="background" />
                     <div className="app-container">
                         <div className="container">
-                            <div style={{ display: "inline-block", backgroundColor: "white", paddingRight: "15px"}}>
+                            <div className="heading" style={{ paddingRight: "15px", zIndex: "1" }}>
                                 <h1>Hire Me Pwease :3c</h1>
                                 <p>Help me Mr. Obama.</p>
                             </div>
                         </div>
                         <div className="container">
                             <Form>
-                                <div style={{ display: "inline-block", backgroundColor: "white"}}>
+                                <div className="heading">
                                     <h2>Personal Information</h2>
                                 </div>
                                 <div className="row">

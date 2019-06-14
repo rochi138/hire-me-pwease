@@ -5,10 +5,11 @@
 	flex-direction: column;
 	padding: 20px;
     margin-left: auto;
-    margin-right: auto;
-    background-image: url("../images/killme.png");
-    background-size: 50%;
-    background-repeat: repeat;
+	margin-right: auto;
+	
+	.heading {
+		padding-right: 15px;
+	}
 }
 
 .page {
@@ -24,5 +25,17 @@
 	position: absolute;
 	@include themify($themes) {
 		color: themed('nameColor');
+	}
+}
+
+.resumeBackground {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	background-image: url("../images/killme.png");
+	background-size: 50%;
+	background-repeat: repeat;
+	@include themify($themes) {
+		filter: themed('backgroundFilter');
 	}
 }
