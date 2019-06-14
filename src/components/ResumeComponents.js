@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import styles from '../SCSS/HomePage.module.scss';
+import '../SCSS/HomePage.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core';
 
