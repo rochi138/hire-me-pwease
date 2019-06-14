@@ -34,7 +34,7 @@ export class CheckBoxesComponent extends Component {
 	constructor(props){
 		super(props);
 
-		var source = require('./' + this.props.fileName + '.json')[this.props.componentName];
+		var source = require('./JSONs/' + this.props.fileName + '.json')[this.props.componentName];
 
 		this.state={
 			source: source,
@@ -46,7 +46,7 @@ export class CheckBoxesComponent extends Component {
 	render() {
 		const source = this.state.source;
 		return (
-			<div className={ styles.checkboxesComponent } style={{borderBottom: "3px solid #000000", margin: getOffsetMargins(10) }}>
+			<div class="checkboxesComponent" style={{borderBottom: "3px solid #000000", margin: getOffsetMargins(10) }}>
 				<div style={{ display: "inline-block", backgroundColor: "white", paddingRight: "15px"}}>
 					<h2><FontAwesomeIcon icon={ this.props.icon } size="lg" style={{ marginRight: "10px"}}/> { this.state.title }</h2>
 				</div>

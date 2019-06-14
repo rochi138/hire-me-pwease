@@ -1,4 +1,4 @@
-import { savePDF } from '../../node_modules/@progress/kendo-react-pdf';
+import { savePDF } from '../../../node_modules/@progress/kendo-react-pdf';
 
 class DocService {
   createPdf = (html) => {

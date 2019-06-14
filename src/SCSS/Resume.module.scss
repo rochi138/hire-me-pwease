@@ -1,3 +1,5 @@
+@import 'themes.scss';
+
 .resume {
 	display: flex;
 	flex-direction: column;
@@ -18,7 +20,9 @@
 
 .name {
 	font-size: 4em;
-	color: red;
 	opacity: 0.5;
 	position: absolute;
+	@include themify($themes) {
+		color: themed('nameColor');
+	}
 }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
-import './App.css';
+import styles from './SCSS/App.scss';
 import Home from './pages/HomePage';
 import Resume from './pages/ResumePage';
 
@@ -9,6 +9,7 @@ class App extends Component {
 		super();
 
 		this.state={
+			theme: "default",
 			name: {
 				firstName: "",
 				lastname: "",
@@ -34,10 +35,10 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <Route exact path='/' render={(props) => <Home moveStateUp={ this.moveStateUp } state={this.state} {...props} />} />
-        <Route path='/resume' render={(props) => <Resume state={this.state} {...props} />} />
-      </div>
+		<div>
+			<Route exact path='/' render={(props) => <Home moveStateUp={ this.moveStateUp } state={this.state} {...props} />} />
+			<Route path='/resume' render={(props) => <Resume moveStateUp={ this.moveStateUp } state={this.state} {...props} />} />
+		</div>	
     );
   }
 }
