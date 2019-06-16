@@ -106,7 +106,7 @@ export default class Resume extends Component{
                 </div>
                 <div>
                     { modesList.map( ( mode ) =>
-                            <div class={ "theme-" + mode }>
+                            <div class={ "theme-" + mode } style={{ display: "inline-block"}}>
                                 <div class="app-container container" ><button class="button" onClick={ () => this.props.moveStateUp( { theme: mode } ) }>{ mode }</button></div>
                             </div>
                     ) }	
