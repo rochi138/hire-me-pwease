@@ -23,14 +23,15 @@ class App extends Component {
 				email: "",
 				tinder: "",
 				instagram: ""
-			}
+			},
+			time: 0
 		}
 
 		this.moveStateUp = this.moveStateUp.bind( this );
 	}
 
 	moveStateUp( updatedObj ) {
-		this.setState( { ...updatedObj } );
+		this.setState( { ...this.state, ...updatedObj } );
 	}
 
   render() {

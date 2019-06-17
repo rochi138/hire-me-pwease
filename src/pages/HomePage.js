@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../SCSS/styles.css';
+import { FormGroup } from 'reactstrap';
 import { CheckBoxesComponent } from '../components/HomePageComponents';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
@@ -12,6 +13,21 @@ import {
     faFireAlt,
     faHashtag
  } from '@fortawesome/free-solid-svg-icons'
+
+const timeOptions= [
+    {
+        label: "Miss me with that 'paying' *dabs*",
+        time: 216
+    },
+    {
+        label: "What I can afford for the developers :)",
+        time: 20
+    },
+    {
+        label: "I am a bored, eccentric millionaire. Plz take all my monies",
+        time: 10
+    }
+]
 
 export default class Home extends Component{
     constructor(props) {
@@ -59,7 +75,7 @@ export default class Home extends Component{
 
     generatePerson() {
         var source = require('../components/JSONs/ContactInfo.json');
-        var state = {
+        var newState = {
             name: {
                 firstName: source.firstName[ this.randomNum( source.firstName.length ) ],
                 lastName: source.lastName[ this.randomNum( source.lastName.length ) ]
@@ -71,13 +87,13 @@ export default class Home extends Component{
                 instagram: source.instagram[ this.randomNum( source.instagram.length ) ],
             }
         }
-        document.getElementById("firstName").value = state.name.firstName;
-        document.getElementById("lastName").value = state.name.lastName;
-        document.getElementById("email").value = state.contactInfo.email;
-        document.getElementById("phone").value = state.contactInfo.phone;
-        document.getElementById("tinder").value = state.contactInfo.tinder;
-        document.getElementById("instagram").value = state.contactInfo.instagram;
-        this.updateFields( state );
+        document.getElementById("firstName").value = newState.name.firstName;
+        document.getElementById("lastName").value = newState.name.lastName;
+        document.getElementById("email").value = newState.contactInfo.email;
+        document.getElementById("phone").value = newState.contactInfo.phone;
+        document.getElementById("tinder").value = newState.contactInfo.tinder;
+        document.getElementById("instagram").value = newState.contactInfo.instagram;
+        this.updateFields( newState );
     }
 
     randomNum( max ) {
@@ -172,8 +188,20 @@ export default class Home extends Component{
                                 componentName="hobbies"
                                 icon={ faPuzzlePiece }
                                 update={ this.updateHobbies } />
+                            <FormGroup tag="fieldset">
+                                <h2>Support</h2>
+                                <label>Time is money. Please donate to the developers of this site.</label>
+                                { timeOptions.map( ( option ) =>
+                                    <FormGroup check onClick={ ()=> this.updateFields({ time: option.time })}>
+                                        <label check>
+                                            <input type="radio" name="radio1" />{' '}
+                                            { option.label }
+                                        </label>
+                                    </FormGroup>
+                                ) }
+                            </FormGroup>
                             <div className="form-group row" style={{ marginTop: "10px", textAlign: "center" }}>
-                                <button className="btn btn-primary" onClick={ () => this.generateResume() }>Hit Me With Your Best Shot</button>
+                                <button className="btn btn-primary" disabled={ !this.props.state.time } onClick={ () => this.generateResume() }>Hit Me With Your Best Shot</button>
                             </div>
                         </div>
                     </div>
