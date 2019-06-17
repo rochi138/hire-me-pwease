@@ -9,6 +9,7 @@ import {
  } from '@fortawesome/free-solid-svg-icons';
 import Doc from '../components/pdf service/DocService';
 import PdfContainer from '../components/pdf service/PdfContainer';
+import { ModesList } from '../components/Constants';
 
 function getTransform () {
     return (
@@ -21,12 +22,6 @@ function getTransform () {
 function getPosition () {
     return 5 * ( 1 + ( Math.floor( Math.random() * ( 15 ) ) ) ) + "%";
 }
-
-const modesList = [
-    "default",
-    "light",
-    "dark"
-]
 
 export default class Resume extends Component{
     createPdf = (html) => Doc.createPdf(html);
@@ -111,7 +106,7 @@ export default class Resume extends Component{
                     </div>
                 </div>
                 <div>
-                    { modesList.map( ( mode ) =>
+                    { ModesList.map( ( mode ) =>
                             <div class={ "theme-" + mode } style={{ display: "inline-block"}}>
                                 <div class="app-container container" ><button class="button" onClick={ () => this.props.moveStateUp( { theme: mode } ) }>{ mode }</button></div>
                             </div>
