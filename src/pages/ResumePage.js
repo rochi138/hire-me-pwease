@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../SCSS/Resume.module.scss';
-import { CheckBoxesComponent, ContactInfoSection } from '../components/ResumeComponents';
+import { CheckBoxesComponent, ContactInfoSection, LoadingScreenComponent } from '../components/ResumeComponents';
 import { 
     faPuzzlePiece,
     faWrench,
@@ -38,70 +38,76 @@ export default class Resume extends Component{
                 <div class={ "app-defaults theme-" + this.props.state.theme }>
                     <div class="background" />
                     <div class="app-container">
-                        <div class="container">
-                            <React.Fragment>
-                                <PdfContainer createPdf={this.createPdf}>
-                                    <React.Fragment>
-                                        <div style={{ position: "relative" }}>
-                                            <div class="resumeBackground" />
-                                            <div class="name" style={{ transform: getTransform(), left: getPosition(), top: getPosition() }}>
-                                                &nbsp; &nbsp; &nbsp; { source.name.lastName } <br /> { source.name.firstName }
-                                            </div>
-                                            <div class="resume" >
-                                                <div style={{height: "10vw", borderBottom: "3px solid #000000", zIndex: "1"}}>
-                                                    <div class="heading">
-                                                        <h1>Name</h1>
-                                                    </div>
-                                                    <label style={{ display: "inline-block"}}>
-                                                        { source.name.lastName || source.name.firstName
-                                                            ? <div>So like the name's on here somewhere... probably</div>
-                                                            : <div> A rose by any other name would smell as sweet (John 12:16) </div>
-                                                        }
-                                                    </label>
+                        { this.props.state.time 
+                            ?   <LoadingScreenComponent 
+                                    time={ this.props.state.time }
+                                    moveStateUp={ this.props.moveStateUp } /> 
+                            :   <div class="container">
+                                <React.Fragment>
+                                    <PdfContainer createPdf={this.createPdf}>
+                                        <React.Fragment>
+                                            <div style={{ position: "relative" }}>
+                                                <div class="resumeBackground" />
+                                                <div class="name" style={{ transform: getTransform(), left: getPosition(), top: getPosition() }}>
+                                                    &nbsp; &nbsp; &nbsp; { source.name.lastName } <br /> { source.name.firstName }
                                                 </div>
-                                                <div class="page" >
-                                                    <div class="col-8" style={{ borderRight: "3px solid #000000", paddingRight: "15px",	marginRight: "15px" }}>
-                                                        <CheckBoxesComponent 
-                                                            title="Hobbies"
-                                                            fileName="Hobbies"
-                                                            componentName="hobbies"
-                                                            icon={ faPuzzlePiece }
-                                                            checkStates={source.hobbies}
-                                                        />
-                                                        <CheckBoxesComponent 
-                                                            title="Projects"
-                                                            fileName="Projects"
-                                                            componentName="projects"
-                                                            icon={ faWrench }
-                                                            checkStates={source.projects}
-                                                        />
-                                                        <CheckBoxesComponent 
-                                                            title="Relevant Work"
-                                                            fileName="RelevantWork"
-                                                            componentName="relevantWork"
-                                                            icon={ faUserTie }
-                                                            checkStates={source.relevantWork}
-                                                        />
+                                                <div class="resume" >
+                                                    <div style={{height: "10vw", borderBottom: "3px solid #000000", zIndex: "1"}}>
+                                                        <div class="heading">
+                                                            <h1>Name</h1>
+                                                        </div>
+                                                        <label style={{ display: "inline-block"}}>
+                                                            { source.name.lastName || source.name.firstName
+                                                                ? <div>So like the name's on here somewhere... probably</div>
+                                                                : <div> A rose by any other name would smell as sweet (John 12:16) </div>
+                                                            }
+                                                        </label>
                                                     </div>
-                                                    <div class="right" >
-                                                        <CheckBoxesComponent 
-                                                            title="Languages"
-                                                            fileName="Languages"
-                                                            componentName="languages"
-                                                            icon={ faLanguage }
-                                                            checkStates={source.languages}
-                                                        />
-                                                        <ContactInfoSection
-                                                        source = { source.contactInfo }
-                                                        />
+                                                    <div class="page" >
+                                                        <div class="col-8" style={{ borderRight: "3px solid #000000", paddingRight: "15px",	marginRight: "15px" }}>
+                                                            <CheckBoxesComponent 
+                                                                title="Hobbies"
+                                                                fileName="Hobbies"
+                                                                componentName="hobbies"
+                                                                icon={ faPuzzlePiece }
+                                                                checkStates={source.hobbies}
+                                                            />
+                                                            <CheckBoxesComponent 
+                                                                title="Projects"
+                                                                fileName="Projects"
+                                                                componentName="projects"
+                                                                icon={ faWrench }
+                                                                checkStates={source.projects}
+                                                            />
+                                                            <CheckBoxesComponent 
+                                                                title="Relevant Work"
+                                                                fileName="RelevantWork"
+                                                                componentName="relevantWork"
+                                                                icon={ faUserTie }
+                                                                checkStates={source.relevantWork}
+                                                            />
+                                                        </div>
+                                                        <div class="right" >
+                                                            <CheckBoxesComponent 
+                                                                title="Languages"
+                                                                fileName="Languages"
+                                                                componentName="languages"
+                                                                icon={ faLanguage }
+                                                                checkStates={source.languages}
+                                                            />
+                                                            <ContactInfoSection
+                                                            source = { source.contactInfo }
+                                                            />
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </React.Fragment>
-                                </PdfContainer>
-                            </React.Fragment>
-                        </div>
+                                        </React.Fragment>
+                                    </PdfContainer>
+                                </React.Fragment>
+                            </div>
+                        }
+                        
                     </div>
                 </div>
                 <div>

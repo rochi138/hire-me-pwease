@@ -3,14 +3,18 @@
 		"Chad", 
 		"Stacy", 
 		"Elon", 
-		"Obama"
+		"Obama",
+		"Gandalf",
+		"Michaelangelo"
 	],
 	"lastName": [
 		"Smith", 
 		"Musk", 
 		"Gates", 
 		"Jobs",
-		"Obama"
+		"Obama",
+		"Dumbledore",
+		"Wayne"
 	],
 	"email": {
 		"username": [
