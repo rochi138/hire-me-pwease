@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../SCSS/styles.css';
 import { FormGroup } from 'reactstrap';
 import { CheckBoxesComponent } from '../components/HomePageComponents';
+import { TimeOptions } from '../components/Constants';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
     faPuzzlePiece,
@@ -13,21 +14,6 @@ import {
     faFireAlt,
     faHashtag
  } from '@fortawesome/free-solid-svg-icons'
-
-const timeOptions= [
-    {
-        label: "Miss me with that 'paying' *dabs* (3:36)",
-        time: 216
-    },
-    {
-        label: "What I can afford for the developers :) (0:20)",
-        time: 20
-    },
-    {
-        label: "I am a bored, eccentric millionaire. Plz take all my monies (0:10)",
-        time: 10
-    }
-]
 
 export default class Home extends Component{
     constructor(props) {
@@ -191,7 +177,7 @@ export default class Home extends Component{
                             <FormGroup tag="fieldset">
                                 <h2>Support</h2>
                                 <label>Time is money. Please donate to the developers of this site.</label>
-                                { timeOptions.map( ( option ) =>
+                                { TimeOptions.map( ( option ) =>
                                     <FormGroup check onClick={ ()=> this.updateFields({ time: option.time })}>
                                         <label check>
                                             <input type="radio" name="radio1" />{' '}
