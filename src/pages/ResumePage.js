@@ -52,12 +52,12 @@ export default class Resume extends Component{
                                                     <div class="heading">
                                                         <h1>Name</h1>
                                                     </div>
-                                                    <div style={{ display: "inline-block", backgroundColor: "white"}}>
+                                                    <label style={{ display: "inline-block"}}>
                                                         { source.name.lastName || source.name.firstName
                                                             ? <div>So like the name's on here somewhere... probably</div>
                                                             : <div> A rose by any other name would smell as sweet (John 12:16) </div>
                                                         }
-                                                    </div>
+                                                    </label>
                                                 </div>
                                                 <div class="page" >
                                                     <div class="col-8" style={{ borderRight: "3px solid #000000", paddingRight: "15px",	marginRight: "15px" }}>

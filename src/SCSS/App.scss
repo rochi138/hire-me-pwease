@@ -5,6 +5,7 @@
   color: red;
   font-size: 12px !important;
   position: relative;
+  padding-bottom: 10px;
   
   .h1, .h2, .h3, h1, h2, h3 {
     color: black;
@@ -39,6 +40,10 @@
     background-color: white;  
   }
 
+  label {
+    background-color: white;
+  }
+
   .background {
     z-index: -1;
     position: absolute;
@@ -52,7 +57,7 @@
 
 .app-container {
   @include themify($themes) {
-    color: themed('textColor');  
+    color: themed('textColor');
   }
 
   .title {
@@ -86,6 +91,12 @@
     @include themify($themes) {
         color: themed('textColor');  
         background-color: themed('backgroundColor');
+    }
+  }
+
+  label {
+    @include themify($themes) {
+      background-color: themed('backgroundColor');
     }
   }
 }

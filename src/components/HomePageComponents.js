@@ -8,7 +8,11 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 // 1. import from
 import { 
 	faChessKing,
-	faPuzzlePiece
+	faPuzzlePiece,
+	faEnvelope,
+	faPhone,
+	faFireAlt,
+	faHashtag
 } from '@fortawesome/free-solid-svg-icons';
 
 // 2. add to library
@@ -19,6 +23,64 @@ library.add(
 
 // 3. add as "icon" to Hobbies.json; check library name from fontawesome website
 // 4. repeat step 1 and 2 in ResumeComponents.js
+
+export class ContactInfoComponent extends Component {
+	constructor( props ){
+		super( props );
+
+		this.state={
+			source: require('./JSONs/ContactInfo.json')
+		}
+	}
+
+	render(){
+		return(
+			<div>
+				<div className="heading">
+					<h2>Personal Information</h2>
+				</div>
+				<div className="row">
+					<div className="col">
+						<div className="form-group">
+							<label>First Name</label>
+							<input className="form-control" placeholder="Chad, Stacey, Elon, Obama" onChange={(e) => this.props.updateName({firstName: e.target.value })} />
+						</div>
+					</div>
+					<div className="col">
+						<div className="form-group">
+							<label >Last Name</label>
+							<input className="form-control" placeholder="Smith, Musk, Gates, Jobs, etc." onChange={(e) => this.props.updateName({lastName: e.target.value })}/>
+						</div>
+					</div>
+				</div>
+				<div className="contact-information">
+					<div className="row">
+						<div className="col">
+							<FontAwesomeIcon icon={ faEnvelope } style={{ marginRight: "5px"}}/>
+							<label>Email Address</label>
+							<input className="form-control" placeholder="president@uwaterloo.ca" onChange={(e) => this.props.updateContactInfo({email: e.target.value })} />
+						</div>
+						<div className="col">
+							<FontAwesomeIcon icon={ faPhone } style={{ marginRight: "5px"}}/>
+							<label>Phone Number</label>
+							<input className="form-control" placeholder="666-420-6969" onChange={(e) => this.props.updateContactInfo({phone: e.target.value })} />
+						</div>
+						<div className="col">
+							<FontAwesomeIcon icon={ faFireAlt } style={{ marginRight: "5px"}}/>
+							<label>Tinder Profile</label>
+							<input className="form-control" placeholder="looking4truluv" onChange={(e) => this.props.updateContactInfo({tinder: e.target.value })} />
+						</div>
+						<div className="col">
+							<FontAwesomeIcon icon={ faHashtag } style={{ marginRight: "5px"}}/>
+							<label>Instagram</label>
+							<input className="form-control" placeholder="@BarackObama" onChange={(e) => this.props.updateContactInfo({instagram: e.target.value })} />
+						</div>
+					</div>
+				</div>
+			</div>
+		)
+	}
+}
 
 export class CheckBoxesComponent extends Component {
 	constructor(props){
