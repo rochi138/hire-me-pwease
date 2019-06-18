@@ -101,6 +101,8 @@ export default class Home extends Component{
                     <div class="background" />
                     <div className="app-container">
                         <div className="container">
+                            <i class="fa fa-chess-king fa-4x" />
+                            <i class="fas fa-chess" size="3x"/>
                             <div className="heading" style={{ paddingRight: "15px", zIndex: "1" }}>
                                 <h1>Hire Me Pwease :3c</h1><br />
                                 <h2>The Internet's Only Terrible Resume Generator</h2>
