@@ -147,7 +147,7 @@ export class LoadingScreenComponent extends Component {
 		})
 		if (min === 0 & sec === 0)
 			this.props.moveStateUp({ time: 0 });
-		this.setState({ time: --this.state.time });
+		this.setState({ time: this.state.time - 1 });
 	}
 	
 	startCountDown() {
@@ -155,9 +155,9 @@ export class LoadingScreenComponent extends Component {
 	}
 
 	convoClick() {
-		if ( this.state.counter == this.state.conversation.length - 1 )
+		if ( this.state.counter === this.state.conversation.length - 1 )
 			this.props.moveStateUp({ time: 0 });
-		this.setState({ counter: ++this.state.counter });
+		this.setState({ counter: this.state.counter + 1 });
 	}
 
 	render() {
@@ -186,7 +186,8 @@ export class LoadingScreenComponent extends Component {
 					<iframe className="video"
 						src={`https://www.youtube.com/embed/QH2-TGUlwu4?autoplay=1`}
 						frameBorder="0"
-						allow="autoplay" />
+						allow="autoplay"
+						title="Fake Loading Screen" />
 				</div>
 			</div>
 		)
