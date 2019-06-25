@@ -172,7 +172,7 @@ export class LoadingScreenComponent extends Component {
 								<button class="obama" onClick={ ()=> this.convoClick() } style={ this.state.conversation[this.state.counter].obama ? {} : { display: "none" }} >
 									{ this.state.conversation[this.state.counter].content 
 										? this.state.conversation[this.state.counter].content 
-										: <img class="meme" src={ require( '../images/Obama' + this.state.conversation[this.state.counter].counter + '.PNG' ) } alt="Obama Eyes"/>
+										: <img class="meme" src={ require( '../images/Obama' + this.state.conversation[this.state.counter].counter.toString() + '.PNG' ) } alt="Obama Eyes"/>
 									}
 								</button>
 							</div>
