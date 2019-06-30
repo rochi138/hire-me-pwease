@@ -177,7 +177,7 @@ export default class Home extends Component{
                                 icon={ faPuzzlePiece }
                                 update={ this.updateHobbies } />
                             <FormGroup tag="fieldset">
-                                <h2>Support</h2>
+                                <div class="heading" ><h2>Support</h2></div>
                                 <label>Time is money. Please donate to the developers of this site.</label>
                                 { TimeOptions.map( ( option ) =>
                                     <FormGroup check onClick={ ()=> this.updateFields({ time: option.time })}>
