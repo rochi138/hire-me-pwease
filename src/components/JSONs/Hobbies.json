@@ -22,12 +22,12 @@
 		},
 		{
 			"description": "CHESS <3",
-			"icon": "chess-king"
+			"icon": "fas fa-chess-king"
 		},
 		{
 			"title": "<div style={{ color: \"black\"}}>puzzles</div>",
 			"description": "puz <3",
-			"icon": "puzzle-piece"
+			"icon": "fas fa-puzzle-piece"
 		}
 	]
 }

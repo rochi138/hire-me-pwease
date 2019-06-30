@@ -3,17 +3,6 @@ import '../SCSS/styles.css';
 import { FormGroup } from 'reactstrap';
 import { CheckBoxesComponent } from '../components/HomePageComponents';
 import { TimeOptions } from '../components/Constants';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { 
-    faPuzzlePiece,
-    faWrench,
-    faUserTie,
-    faLanguage,
-    faEnvelope,
-    faPhone,
-    faFireAlt,
-    faHashtag
- } from '@fortawesome/free-solid-svg-icons'
 
 export default class Home extends Component{
     constructor(props) {
@@ -101,8 +90,6 @@ export default class Home extends Component{
                     <div class="background" />
                     <div className="app-container">
                         <div className="container">
-                            <i class="fa fa-chess-king fa-4x" />
-                            <i class="fas fa-chess" size="3x"/>
                             <div className="heading" style={{ paddingRight: "15px", zIndex: "1" }}>
                                 <h1>Hire Me Pwease :3c</h1><br />
                                 <h2>The Internet's Only Terrible Resume Generator</h2>
@@ -131,22 +118,22 @@ export default class Home extends Component{
                             <div className="contact-information">
                                 <div className="row">
                                     <div className="col">
-                                        <FontAwesomeIcon icon={ faEnvelope } style={{ marginRight: "5px"}}/>
+                                        <i className="fas fa-envelope" />
                                         <label>Email Address</label>
                                         <input id="email" className="form-control" placeholder="president@uwaterloo.ca" onChange={(e) => this.updateContactInfo({email: e.target.value })} />
                                     </div>
                                     <div className="col">
-                                        <FontAwesomeIcon icon={ faPhone } style={{ marginRight: "5px"}}/>
+                                        <i className="fas fa-phone" />
                                         <label>Phone Number</label>
                                         <input id="phone" className="form-control" placeholder="666-420-6969" onChange={(e) => this.updateContactInfo({phone: e.target.value })} />
                                     </div>
                                     <div className="col">
-                                        <FontAwesomeIcon icon={ faFireAlt } style={{ marginRight: "5px"}}/>
+                                        <i className="fas fa-fire-alt" style={{ transform: "scaleX(-1"}}/>
                                         <label>Tinder Profile</label>
                                         <input id="tinder" className="form-control" placeholder="lookin4truluv" onChange={(e) => this.updateContactInfo({tinder: e.target.value })} />
                                     </div>
                                     <div className="col">
-                                        <FontAwesomeIcon icon={ faHashtag } style={{ marginRight: "5px"}}/>
+                                        <i className="fas fa-hashtag" />
                                         <label>Instagram</label>
                                         <input id="instagram" className="form-control" placeholder="@BarackObama" onChange={(e) => this.updateContactInfo({instagram: e.target.value })} />
                                     </div>
@@ -156,25 +143,25 @@ export default class Home extends Component{
                                 title="Languages"
                                 fileName="Languages"
                                 componentName="languages"
-                                icon={ faLanguage }
+                                icon="fas fa-language"
                                 update={ this.updateLanguages } />
                             <CheckBoxesComponent 
                                 title="Projects"
                                 fileName="Projects"
                                 componentName="projects"
-                                icon={ faWrench }
+                                icon="fas fa-wrench"
                                 update={ this.updateProjects } />
                             <CheckBoxesComponent 
                                 title="Relevant Work"
                                 fileName="RelevantWork"
                                 componentName="relevantWork"
-                                icon={ faUserTie }
+                                icon="fas fa-user-tie"
                                 update={ this.updateRelevantWork } />
                             <CheckBoxesComponent 
                                 title="Hobbies"
                                 fileName="Hobbies"
                                 componentName="hobbies"
-                                icon={ faPuzzlePiece }
+                                icon="fas fa-puzzle-piece"
                                 update={ this.updateHobbies } />
                             <FormGroup tag="fieldset">
                                 <div class="heading" ><h2>Support</h2></div>

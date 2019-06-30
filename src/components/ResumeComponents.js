@@ -1,21 +1,6 @@
 import React, { Component } from 'react';
 import '../SCSS/HomePage.module.scss';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { library } from '@fortawesome/fontawesome-svg-core';
 import { Row } from 'reactstrap';
-
-import { 
-  faEnvelope,
-  faPhone,
-  faFireAlt,
-	faHashtag,
-	faAddressCard,
-	faChessKing
-} from '@fortawesome/free-solid-svg-icons';
-
-library.add( 
-	faChessKing 
-);
 
 function getOffsetMargins ( multiplier ) {
 	return (
@@ -49,7 +34,7 @@ export class CheckBoxesComponent extends Component {
 		return (
 			<div class="checkboxesComponent" style={{borderBottom: "3px solid #000000", margin: getOffsetMargins(10) }}>
 				<div class="heading" >
-					<FontAwesomeIcon icon={ this.props.icon } size="3x" style={{ marginRight: "10px"}}/><h2> { this.state.title }</h2>
+					<i className={ this.props.icon + " fa-3x"} style={{ marginRight: "10px"}}/><h2> { this.state.title }</h2>
 				</div>
 				{ this.state.checkStates.map( ( checkState, i ) =>
 					<div key = { i }>
@@ -58,7 +43,7 @@ export class CheckBoxesComponent extends Component {
 								{ source[i].title || source[i].icon
 										? <div>
 												<div style={{ fontSize: "1em", fontWeight: "bold" }}>
-														<FontAwesomeIcon icon={ source[i].icon } size={ source[i].title ? "2x" : "4x" }/>
+														<i className={ source[i].icon + ( source[i].title ? " fa-2x" : " fa-4x" ) }/>
 														{ source[i].title }
 												</div>
 												<div style={{ margin: getOffsetMargins(8) }}>
@@ -83,23 +68,23 @@ export class ContactInfoSection extends Component {
 		return (
 			<div>
 				<div class="heading" >
-					<FontAwesomeIcon icon={ faAddressCard } style={{ marginRight: "10px"}}/>
+					<i className="fas fa-address-card" style={{ marginRight: "10px"}}/>
 					<h2>Contact Info</h2>
 				</div>
 				<ContactInfoComponent
-					icon={ faEnvelope }
+					icon="fas fa-envelope"
 					info={ source.email }
 				/>
 				<ContactInfoComponent
-					icon={ faPhone }
+					icon="fas fa-phone"
 					info={ source.phone }
 				/>
 				<ContactInfoComponent
-					icon={ faFireAlt }
+					icon="fas fa-fire-alt"
 					info={ source.tinder }
 				/>
 				<ContactInfoComponent
-					icon={ faHashtag }
+					icon="fas fa-hashtag"
 					info={ source.instagram }
 				/>
 		</div>
@@ -114,7 +99,7 @@ class ContactInfoComponent extends Component {
 			<div>
 				{ this.props.info &&
 					<div style={{ margin: getOffsetMargins(4) }}>
-							<FontAwesomeIcon icon={ this.props.icon } style={{ marginRight: (getOffsetNum( 3 ) + "px") }}/>
+							<i className={ this.props.icon } style={{ marginRight: (getOffsetNum( 3 ) + "px") }}/>
 							{ this.props.info }
 					</div>
 				}
