@@ -46,9 +46,7 @@ export class CheckBoxesComponent extends Component {
 														<i className={ source[i].icon + ( source[i].title ? " fa-2x" : " fa-4x" ) }/>
 														{ source[i].title }
 												</div>
-												<div style={{ margin: getOffsetMargins(8) }}>
-													{ source[i].description }
-												</div>
+												<div style={{ margin: getOffsetMargins(8) }} dangerouslySetInnerHTML={ { __html: source[i].description } } />
 											</div>
 										: <div style={{ margin: getOffsetMargins(4) }}>{ source[i] }</div>
 								}
