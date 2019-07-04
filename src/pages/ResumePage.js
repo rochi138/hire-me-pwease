@@ -1,12 +1,6 @@
 import React, { Component } from 'react';
 import '../SCSS/Resume.module.scss';
 import { CheckBoxesComponent, ContactInfoSection, LoadingScreenComponent } from '../components/ResumeComponents';
-import { 
-    faPuzzlePiece,
-    faWrench,
-    faUserTie,
-    faLanguage
- } from '@fortawesome/free-solid-svg-icons';
 import Doc from '../components/pdf service/DocService';
 import PdfContainer from '../components/pdf service/PdfContainer';
 import { ModesList } from '../components/Constants';
