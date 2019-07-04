@@ -1,3 +1,5 @@
+// For downloading, straight jspdf and jspdf + html2canvas did not seem to work
+
 import React, { Component } from 'react';
 import '../SCSS/Resume.module.scss';
 import { CheckBoxesComponent, ContactInfoSection, LoadingScreenComponent } from '../components/ResumeComponents';
