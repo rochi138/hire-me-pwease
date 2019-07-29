@@ -170,7 +170,7 @@ export default class Home extends Component{
                                     <FormGroup check onClick={ ()=> this.updateFields({ time: option.time })}>
                                         <label check>
                                             <input type="radio" name="radio1" />{' '}
-                                            { option.label }
+                                            <div style={{ display: "inline-block" }} dangerouslySetInnerHTML={ { __html: option.label } } />
                                         </label>
                                     </FormGroup>
                                 ) }
