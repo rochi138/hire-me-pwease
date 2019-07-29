@@ -22,12 +22,54 @@
 		},
 		{
 			"description": "CHESS <3",
-			"icon": "chess-king"
+			"icon": "fas fa-chess-king"
 		},
 		{
 			"title": "<div style={{ color: \"black\"}}>puzzles</div>",
 			"description": "puz <3",
-			"icon": "puzzle-piece"
+			"icon": "fas fa-puzzle-piece"
+		},
+		{
+			"title": "(e)Sports",
+			"description": "I'm an active Fortnite, League, and Overwatch player."
+		},
+		{
+			"title": "Breathing",
+			"description": "10/10 would recommend"
+		},
+		{
+			"title": "uwu",
+			"description": "<i>notices your starting salary</i> owo what's this?"
+		},
+		{
+			"title": "Alcohol Connoisseur",
+			"description": "I even got my stomach pumped one time"
+		},
+		{
+			"title": "Elite Yelper™",
+			"description": "Maybe you've read one of my excessively long reviews!"
+		},
+		{
+			"title": "Martial Artist",
+			"description": "With many years of practice, I’ve turned just barely passing courses into an art form. "
+		},
+		{
+			"title": "I'm too lazy for a title",
+			"description": "Won awards for most hours spent catatonic scrolling on phone"
+		},
+		{
+			"title": "Music",
+			"description": "music is my passion; I can play the recorder and sing (in the shower)",
+			"icon": "fas fa-music"
+		},
+		{
+			"title": "Baking",
+			"description": "the bacteria I’m growing in the cabinet adds a unique flavour to my products"
+		},
+		{
+			"title": "Getting Baked",
+			"description": ";)",
+			"icon": "fas fa-bong"
 		}
 	]
 }

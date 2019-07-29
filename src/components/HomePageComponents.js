@@ -1,24 +1,5 @@
 import React, { Component } from 'react';
 import '../SCSS/HomePage.module.scss';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { library } from '@fortawesome/fontawesome-svg-core';
-
-//To put icons in checkboxes:
-
-// 1. import from
-import { 
-	faChessKing,
-	faPuzzlePiece
-} from '@fortawesome/free-solid-svg-icons';
-
-// 2. add to library
-library.add( 
-	faChessKing,
-	faPuzzlePiece
-);
-
-// 3. add as "icon" to Hobbies.json; check library name from fontawesome website
-// 4. repeat step 1 and 2 in ResumeComponents.js
 
 export class CheckBoxesComponent extends Component {
 	constructor(props){
@@ -67,7 +48,7 @@ export class CheckBoxesComponent extends Component {
 		return (
 			<div className="checkboxesComponent" >
 				<div className="heading">
-					{ this.state.icon && <FontAwesomeIcon icon={ this.state.icon } size="4x"/> }
+					{ this.state.icon && <i className={ this.props.icon + " fa-4x"} /> }
 					<h2 style={{ marginLeft: "10px" }}>{ this.state.title }</h2>
 				</div>
 				<div className="form-group row">
@@ -76,7 +57,7 @@ export class CheckBoxesComponent extends Component {
 								<input type="checkbox" className="custom-control-input" checked={ (this.state.checkStates[ i ]) ? "checked" : "" } onChange={ ()=> {} }/>
 								{ component.title || component.icon
 									? <label className="custom-control-label">
-											{ component.icon && <FontAwesomeIcon icon={ component.icon } size={ component.title ? "2x" : "3x" }/> }
+											{ component.icon && <i className={ component.icon + ( component.title ? " fa-2x" : " fa-3x" ) }/> }
 											{ component.title }
 										</label> 
 									: <label className="custom-control-label">{ component }</label>

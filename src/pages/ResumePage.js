@@ -1,12 +1,8 @@
+// For downloading, straight jspdf and jspdf + html2canvas did not seem to work
+
 import React, { Component } from 'react';
 import '../SCSS/Resume.module.scss';
 import { CheckBoxesComponent, ContactInfoSection, LoadingScreenComponent } from '../components/ResumeComponents';
-import { 
-    faPuzzlePiece,
-    faWrench,
-    faUserTie,
-    faLanguage
- } from '@fortawesome/free-solid-svg-icons';
 import Doc from '../components/pdf service/DocService';
 import PdfContainer from '../components/pdf service/PdfContainer';
 import { ModesList } from '../components/Constants';
@@ -64,21 +60,21 @@ export default class Resume extends Component{
                                                                 title="Hobbies"
                                                                 fileName="Hobbies"
                                                                 componentName="hobbies"
-                                                                icon={ faPuzzlePiece }
+                                                                icon="fas fa-puzzle-piece"
                                                                 checkStates={source.hobbies}
                                                             />
                                                             <CheckBoxesComponent 
                                                                 title="Projects"
                                                                 fileName="Projects"
                                                                 componentName="projects"
-                                                                icon={ faWrench }
+                                                                icon="fas fa-wrench"
                                                                 checkStates={source.projects}
                                                             />
                                                             <CheckBoxesComponent 
                                                                 title="Relevant Work"
                                                                 fileName="RelevantWork"
                                                                 componentName="relevantWork"
-                                                                icon={ faUserTie }
+                                                                icon="fas fa-wrench"
                                                                 checkStates={source.relevantWork}
                                                             />
                                                         </div>
@@ -87,7 +83,7 @@ export default class Resume extends Component{
                                                                 title="Languages"
                                                                 fileName="Languages"
                                                                 componentName="languages"
-                                                                icon={ faLanguage }
+                                                                icon="fas fa-language"
                                                                 checkStates={source.languages}
                                                             />
                                                             <ContactInfoSection

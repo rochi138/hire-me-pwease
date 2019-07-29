@@ -4,11 +4,11 @@ export const TimeOptions= [
         time: 216
     },
     {
-        label: "What I can afford for the developers :) (0:20)",
+        label: "What I can afford for the developers :) (0:30)",
         time: 20
     },
     {
-        label: "I am a bored, eccentric millionaire. Plz take all my monies (0:10)",
+        label: "Developers are awesome and deserve compensation for their efforts (thumbs up) (0:10)",
         time: 10
     }
 ]

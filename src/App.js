@@ -24,7 +24,7 @@ class App extends Component {
 				tinder: "",
 				instagram: ""
 			},
-			time: 0
+			time: 15
 		}
 
 		this.moveStateUp = this.moveStateUp.bind( this );
