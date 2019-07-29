@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/hire-me-pwease/precache-manifest.504682c18a007b48b43ee21eb54e22df.js"
+  "/hire-me-pwease/precache-manifest.ea302d80837fd2c2e3bd4839c18c74ae.js"
 );
 
 workbox.clientsClaim();
