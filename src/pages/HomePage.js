@@ -78,14 +78,14 @@ export default class Home extends Component{
     render(){
         return(
             <div>
-                <div className="container">
+                {/* <div className="container">
                     { this.props.state.theme === "default" 
                         ? <div className="theme-dark">
                             <div className="app-container">
                                 <button className="button" onClick={ () => this.updateFields({ theme: "dark" })}>Dark Mode</button></div></div>
                         : <div className="theme-default"><div className="app-container"><button className="button" onClick={ () => this.updateFields({ theme: "default" })}>Default</button></div></div>
                     }
-                </div>
+                </div> */}
                 <div className={ "app-defaults theme-" + this.props.state.theme }>
                     <div class="background" />
                     <div className="app-container">
