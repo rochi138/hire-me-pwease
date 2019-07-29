@@ -1,0 +1,24 @@
+{
+	"projects": [
+		{
+			"title": "Guugle",
+			"description": "Yeah I made Google and all its algo-rhythms.",
+			"icon": "fab fa-google"
+		},
+		{
+			"title": "Machine Learning things",
+			"description": "Look at all these neural networks I found online! Oh, and I took an online course.",
+			"icon": "fas fa-robot"
+		},
+		{
+			"title": "Startup",
+			"description": "I got an I N N O V A T I V E idea that will DiSrUpT the market.",
+			"icon": "fas fa-brain"
+		},
+		{
+			"title": "My blog",
+			"description": "Increased readership by 200% in the second month! Before it was just me; now it's still just me but also in incognito mode.",
+			"icon": "fas fa-blog"
+		}
+	]
+}

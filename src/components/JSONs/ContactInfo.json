@@ -1,0 +1,41 @@
+{
+	"firstName": [
+		"Chad", 
+		"Stacy", 
+		"Elon", 
+		"Obama",
+		"Gandalf",
+		"Michaelangelo"
+	],
+	"lastName": [
+		"Smith", 
+		"Musk", 
+		"Gates", 
+		"Jobs",
+		"Obama",
+		"Dumbledore",
+		"Wayne"
+	],
+	"email": {
+		"username": [
+			"president"
+		],
+		"domain": [
+			"uwaterloo",
+			"america"
+		]
+	},
+	"phone": [
+		"420-666-6969",
+		"1-TINDER ME UP ext. 69",
+		"1-800-267-2001"
+	],
+	"tinder": [
+		"tinder_me_up_:3",
+		"NoodleyNoods",
+		"lookin4truluv"
+	],
+	"instagram": [
+		"i.just.want.free.stuff"
+	]
+}

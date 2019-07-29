@@ -1,0 +1,46 @@
+{
+	"relevantWork": [
+		{
+			"title": "Guugle",
+			"description": "It does the search thing",
+			"icon": "fab fa-google"
+		},
+		{
+			"title": "Professional Marijuana Distributor",
+			"description": "Absolutely positive customer satisfaction. Always providing the best grams that $5 and a piece of lint can buy. For references, just ask your CEO.",
+			"icon": "fas fa-cannabis"
+		},
+		{
+			"title": "Telsa",
+			"description": "It does the <i>VROOM VROOM AWOOGA</i> thing",
+			"icon": "fas fa-charging-station"
+		},
+		{
+			"title": "Little Caesars",
+			"description": "Okay so like I worked there for 4 months and I'm applying for a tech job, but I literally have no other expereince worth noting",
+			"icon": "fas fa-pizza-slice"
+		},
+		{
+			"title": "Macrosoft",
+			"description": "Beep Boop",
+			"icon": "fab fa-microsoft"
+		},
+		{
+			"title": "IT support",
+			"description": "Helped grandma figure out how to post photos onto Facebook."
+		},
+		{
+			"title": "Video Game Developer",
+			"description": "Developed a game with Scratch in grade 6.",
+			"icon": "fas fa-gamepad"
+		},
+		{
+			"title": "Website Developer",
+			"description": "Designed my uncle's company website."
+		},
+		{
+			"title": "Workplace Productivity Boost",
+			"description": "Improved productivity of workplace by 1000% in a month; the new month was the beginning of final exams"
+		}
+	]
+}
