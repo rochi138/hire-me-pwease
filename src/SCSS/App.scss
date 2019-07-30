@@ -103,6 +103,18 @@
 
 .background {
   @include themify($themes) {
-    filter: themed('backgroundFilter');
+    background-image: themed('backgroundImage');
+  }
+}
+
+.form-control {
+  @include themify($themes) {
+    background-color: themed('textColor');
+  }
+}
+
+.custom-control-label::before{
+  @include themify($themes) {
+    background-color: themed('textColor');
   }
 }
