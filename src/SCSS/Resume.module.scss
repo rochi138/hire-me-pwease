@@ -37,7 +37,7 @@
 	background-size: 50%;
 	background-repeat: repeat;
 	@include themify($themes) {
-		filter: themed('backgroundFilter');
+		background-image: themed('resumeImage');
 	}
 }
 
